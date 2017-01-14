@@ -20,7 +20,12 @@ class ClientFactory
      */
     public function get(ConnectionInterface $connection)
     {
+        return new Client($this->getNextId(), $connection, -1);
+    }
+
+    protected function getNextId() : int
+    {
         $this->currentId++;
-        return new Client($this->currentId, $connection, -1);
+        return $this->currentId;
     }
 }
