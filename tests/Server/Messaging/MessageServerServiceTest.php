@@ -3,7 +3,7 @@ namespace Volante\SkyBukkit\RleayServer\Tests\Messaging;
 
 use Symfony\Component\Console\Tests\Fixtures\DummyOutput;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageRelayService;
+use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageServerService;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageService;
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
 use Volante\SkyBukkit\Common\Src\Server\Network\ClientFactory;
@@ -12,13 +12,13 @@ use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;
 use Volante\SkyBukkit\Common\Tests\Server\General\DummyConnection;
 
 /**
- * Class MessageRelayServiceTest
+ * Class MessageServerServiceTest
  * @package Volante\SkyBukkit\RleayServer\Tests
  */
-class MessageRelayServiceTest extends \PHPUnit_Framework_TestCase
+class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var MessageRelayService
+     * @var MessageServerService
      */
     private $relayService;
 
@@ -49,7 +49,7 @@ class MessageRelayServiceTest extends \PHPUnit_Framework_TestCase
         $this->messageService = $this->getMockBuilder(MessageService::class)->disableOriginalConstructor()->getMock();
 
         $this->dummyOutput = $this->getMockBuilder(DummyOutput::class)->disableOriginalConstructor()->getMock();
-        $this->relayService = new MessageRelayService($this->dummyOutput, $this->messageService, $this->clientFactory);
+        $this->relayService = new MessageServerService($this->dummyOutput, $this->messageService, $this->clientFactory);
     }
 
     public function test_newClient_factoryCalled()
@@ -78,7 +78,7 @@ class MessageRelayServiceTest extends \PHPUnit_Framework_TestCase
         $outputLog = null;
         $this->dummyOutput->expects(self::once())
             ->method('writeLn')->willReturnCallback(function ($messages, $options = 0) use ($outputLog) {
-                self::assertStringEndsWith('[<fg=cyan;options=bold>MessageRelayService</>] <error>No connected client found!</error>', $messages);
+                self::assertStringEndsWith('[<fg=cyan;options=bold>MessageServerService</>] <error>No connected client found!</error>', $messages);
             });
 
         $this->relayService->newMessage($this->connection, '123');

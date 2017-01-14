@@ -12,10 +12,10 @@ use Volante\SkyBukkit\Common\Src\Server\Network\ClientFactory;
 use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;
 
 /**
- * Class MessageRelayService
+ * Class MessageServerService
  * @package Volante\SkyBukkit\Monitor\Src\FlightStatus\Network
  */
-class MessageRelayService
+class MessageServerService
 {
     use OutputOperations;
 
@@ -35,7 +35,7 @@ class MessageRelayService
     private $clients = [];
 
     /**
-     * MessageRelayService constructor.
+     * MessageServerService constructor.
      * @param OutputInterface $output
      * @param MessageService $messageService
      * @param ClientFactory $clientFactory
@@ -54,7 +54,7 @@ class MessageRelayService
     {
         $this->sandbox(function () use ($connection) {
             $this->clients[] = $client = $this->clientFactory->get($connection);
-            $this->writeInfoLine('MessageRelayService', 'New client ' . $client->getId() . ' connected!');
+            $this->writeInfoLine('MessageServerService', 'New client ' . $client->getId() . ' connected!');
         });
     }
 
@@ -78,18 +78,25 @@ class MessageRelayService
         $this->sandbox(function () use ($connection, $message) {
             $client = $this->findClient($connection);
             $message = $this->messageService->handle($client, $message);
-
-            switch (get_class($message)) {
-                case AuthenticationMessage::class:
-                    /** @var AuthenticationMessage $message */
-                    $this->handleAuthenticationMessage($message);
-                    break;
-                case IntroductionMessage::class:
-                    /** @var IntroductionMessage $message */
-                    $this->handleIntroductionMessage($message);
-                    break;
-            }
+            $this->handleMessage($message);
         });
+    }
+
+    /**
+     * @param Message $message
+     */
+    protected function handleMessage(Message $message)
+    {
+        switch (get_class($message)) {
+            case AuthenticationMessage::class:
+                /** @var AuthenticationMessage $message */
+                $this->handleAuthenticationMessage($message);
+                break;
+            case IntroductionMessage::class:
+                /** @var IntroductionMessage $message */
+                $this->handleIntroductionMessage($message);
+                break;
+        }
     }
 
     /**
@@ -100,9 +107,9 @@ class MessageRelayService
         try {
             call_user_func($function);
         } catch (\Exception $e) {
-            $this->writeErrorLine('MessageRelayService', $e->getMessage());
+            $this->writeErrorLine('MessageServerService', $e->getMessage());
         } catch (\TypeError $e) {
-            $this->writeErrorLine('MessageRelayService', $e->getMessage());
+            $this->writeErrorLine('MessageServerService', $e->getMessage());
         }
     }
 
@@ -113,7 +120,7 @@ class MessageRelayService
     {
         if ($message->getToken() === getenv('AUTH_TOKEN')) {
             $message->getSender()->setAuthenticated();
-            $this->writeInfoLine('MessageRelayService', 'Client ' . $message->getSender()->getId() . ' authenticated successfully.');
+            $this->writeInfoLine('MessageServerService', 'Client ' . $message->getSender()->getId() . ' authenticated successfully.');
         } else {
             $this->disconnectClient($message->getSender());
             throw new UnauthorizedException('Client ' . $message->getSender()->getId() . ' tried to authenticate with wrong token!');
@@ -127,7 +134,7 @@ class MessageRelayService
     {
         $this->authenticate($message->getSender());
         $message->getSender()->setRole($message->getRole());
-        $this->writeInfoLine('MessageRelayService', 'Client ' . $message->getSender()->getId() . ' introduced as ' . ClientRole::getTitle($message->getRole()) . '.');
+        $this->writeInfoLine('MessageServerService', 'Client ' . $message->getSender()->getId() . ' introduced as ' . ClientRole::getTitle($message->getRole()) . '.');
     }
 
     /**
