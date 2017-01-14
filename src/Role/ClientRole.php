@@ -21,9 +21,9 @@ abstract class ClientRole
 
     /**
      * @param int $clientRole
-     * @return int
+     * @return string
      */
-    public static function getTitle(int $clientRole) : int
+    public static function getTitle(int $clientRole) : string
     {
         switch ($clientRole) {
             case self::OPERATOR:
