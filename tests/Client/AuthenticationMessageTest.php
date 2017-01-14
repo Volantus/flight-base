@@ -2,7 +2,7 @@
 namespace Volante\SkyBukkit\Common\Tests\Client;
 
 use Volante\SkyBukkit\Common\Src\Client\AuthenticationMessage;
-use Volante\SkyBukkit\Common\Src\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
 
 /**
  * Class AuthenticationMessageTest

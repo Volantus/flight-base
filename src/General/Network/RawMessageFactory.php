@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Network;
+namespace Volante\SkyBukkit\Common\Src\General\Network;
 
 use Assert\Assertion;
 
