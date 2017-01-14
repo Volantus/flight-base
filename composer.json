@@ -14,7 +14,8 @@
     "beberlei/assert": "^2.7",
     "nesbot/carbon": "^1.21",
     "phpunit/phpunit": "^5.7",
-    "symfony/console": "^3.2"
+    "symfony/console": "^3.2",
+    "cboden/ratchet": "^0.3.6"
   },
   "autoload": {
     "psr-4": {
