@@ -8,13 +8,13 @@ use Assert\Assertion;
  *
  * @package Volante\SkyBukkit\Monitor\Src\FlightStatus\Network
  */
-class RawMessageFactory
+abstract class RawMessageFactory
 {
     /**
      * @param string $json
      * @return RawMessage
      */
-    public function create(string $json) : RawMessage
+    protected function createFromJson(string $json) : RawMessage
     {
         $json = json_decode($json, true);
 

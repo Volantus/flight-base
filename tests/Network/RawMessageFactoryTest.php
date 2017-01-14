@@ -1,8 +1,7 @@
 <?php
-namespace Volante\SkyBukkit\RleayServer\Tests\Message;
+namespace Volante\SkyBukkit\Common\Tests\Network;
 
 use Volante\SkyBukkit\Common\Src\Network\RawMessage;
-use Volante\SkyBukkit\Common\Src\Network\RawMessageFactory;
 
 /**
  * Class MessageFactoryTest
@@ -27,7 +26,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function test_create_invalidJson()
     {
-        $this->factory->create('abc');
+        $this->factory->createFromJson('abc');
     }
 
     /**
@@ -38,7 +37,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getCorrectMessage();
         unset($data['type']);
-        $this->factory->create(json_encode($data));
+        $this->factory->createFromJson(json_encode($data));
     }
 
     /**
@@ -49,7 +48,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getCorrectMessage();
         unset($data['title']);
-        $this->factory->create(json_encode($data));
+        $this->factory->createFromJson(json_encode($data));
     }
 
     /**
@@ -60,7 +59,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getCorrectMessage();
         unset($data['data']);
-        $this->factory->create(json_encode($data));
+        $this->factory->createFromJson(json_encode($data));
     }
 
     /**
@@ -71,7 +70,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getCorrectMessage();
         $data['type'] = null;
-        $this->factory->create(json_encode($data));
+        $this->factory->createFromJson(json_encode($data));
     }
 
     /**
@@ -82,7 +81,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getCorrectMessage();
         $data['title'] = null;
-        $this->factory->create(json_encode($data));
+        $this->factory->createFromJson(json_encode($data));
     }
 
     /**
@@ -93,7 +92,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getCorrectMessage();
         $data['type'] = [1];
-        $this->factory->create(json_encode($data));
+        $this->factory->createFromJson(json_encode($data));
     }
 
     /**
@@ -104,7 +103,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getCorrectMessage();
         $data['title'] = [1];
-        $this->factory->create(json_encode($data));
+        $this->factory->createFromJson(json_encode($data));
     }
 
     /**
@@ -115,14 +114,14 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getCorrectMessage();
         $data['data'] = 'abc';
-        $this->factory->create(json_encode($data));
+        $this->factory->createFromJson(json_encode($data));
     }
 
     public function test_create_correctMessage()
     {
         $data = $this->getCorrectMessage();
         $data = json_encode($data);
-        $message = $this->factory->create($data);
+        $message = $this->factory->createFromJson($data);
 
         self::assertInstanceOf(RawMessage::class, $message);
         self::assertEquals('dummyMessage', $message->getType());
