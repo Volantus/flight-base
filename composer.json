@@ -1,0 +1,25 @@
+{
+  "name": "volante/common",
+  "description": "Contains all shared volante libraries",
+  "type": "library",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Marius Meißner",
+      "email": "info@marius-meissner.net"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "beberlei/assert": "^2.7",
+    "nesbot/carbon": "^1.21",
+    "phpunit/phpunit": "^5.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Volante\\SkyBukkit\\Common\\": "",
+      "Volante\\SkyBukkit\\Common\\Src\\": "src",
+      "Volante\\SkyBukkit\\Common\\Tests\\": "tests"
+    }
+  }
+}
