@@ -16,12 +16,22 @@ abstract class RawMessageFactory
      */
     protected function createFromJson(string $json) : RawMessage
     {
+        $json = $this->getJsonData($json);
+        return new RawMessage($json['type'], $json['title'], $json['data']);
+    }
+
+    /**
+     * @param string $json
+     * @return array
+     */
+    protected function getJsonData(string $json) : array
+    {
         $json = json_decode($json, true);
 
         Assertion::isArray($json, 'Invalid message format: invalid json format');
         $this->validate($json);
 
-        return new RawMessage($json['type'], $json['title'], $json['data']);
+        return $json;
     }
 
     /**
