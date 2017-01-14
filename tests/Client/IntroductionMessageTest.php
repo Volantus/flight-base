@@ -1,7 +1,7 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Client\Role;
+namespace Volante\SkyBukkit\Common\Tests\Client;
 
-use Volante\SkyBukkit\Common\Src\Client\Role\IntroductionMessage;
+use Volante\SkyBukkit\Common\Src\Client\IntroductionMessage;
 use Volante\SkyBukkit\Common\Src\Network\RawMessage;
 use Volante\SkyBukkit\Common\Src\Role\ClientRole;
 

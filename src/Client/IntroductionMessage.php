@@ -1,7 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Client\Role;
-
-use Volante\SkyBukkit\Common\Src\Client\Network\Message;
+namespace Volante\SkyBukkit\Common\Src\Client;
 
 /**
  * Class IntroductionMessage
