@@ -1,7 +1,7 @@
 <?php
 namespace Volante\SkyBukkit\Common\Src\Client;
 
-use Volante\SkyBukkit\Common\Src\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
 
 /**
  * Class Message
@@ -20,7 +20,7 @@ abstract class Message
     protected $messageTitle = 'undefined';
 
     /**
-     * @return RawMessage
+     * @return \Volante\SkyBukkit\Common\Src\General\Network\RawMessage
      */
     public function toRawMessage() : RawMessage
     {

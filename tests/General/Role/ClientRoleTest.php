@@ -1,7 +1,7 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Role;
+namespace Volante\SkyBukkit\Common\Tests\General\Role;
 
-use Volante\SkyBukkit\Common\Src\Role\ClientRole;
+use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
 
 /**
  * Class ClientRoleTest
