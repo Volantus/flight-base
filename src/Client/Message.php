@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Client\Network;
+namespace Volante\SkyBukkit\Common\Src\Client;
 
 use Volante\SkyBukkit\Common\Src\Network\RawMessage;
 
