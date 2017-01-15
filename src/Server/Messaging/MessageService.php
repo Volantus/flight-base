@@ -40,9 +40,9 @@ class MessageService
     /**
      * @param Client $sender
      * @param string $message
-     * @return Message
+     * @return IncomingMessage
      */
-    public function handle(Client $sender, string $message) : Message
+    public function handle(Client $sender, string $message) : IncomingMessage
     {
         $rawMessage = $this->rawMessageFactory->create($sender, $message);
 

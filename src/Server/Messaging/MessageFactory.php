@@ -15,7 +15,7 @@ abstract class MessageFactory
      */
     protected $type = 'notDefined';
 
-    abstract public function create(RawMessage $rawMessage) : Message;
+    abstract public function create(RawMessage $rawMessage) : IncomingMessage;
 
     /**
      * @return string

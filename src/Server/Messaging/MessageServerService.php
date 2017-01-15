@@ -84,9 +84,9 @@ class MessageServerService
     }
 
     /**
-     * @param Message $message
+     * @param IncomingMessage $message
      */
-    protected function handleMessage(Message $message)
+    protected function handleMessage(IncomingMessage $message)
     {
         switch (get_class($message)) {
             case AuthenticationMessage::class:

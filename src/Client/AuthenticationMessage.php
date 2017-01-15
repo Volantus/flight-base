@@ -5,7 +5,7 @@ namespace Volante\SkyBukkit\Common\Src\Client;
  * Class AuthenticationMessage
  * @package Volante\SkyBukkit\Common\Src\Client
  */
-class AuthenticationMessage extends Message
+class AuthenticationMessage extends OutgoingMessage
 {
     /**
      * @var string

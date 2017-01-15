@@ -5,7 +5,7 @@ namespace Volante\SkyBukkit\Common\Src\Client;
  * Class IntroductionMessage
  * @package Volante\SkyBukkit\StatusBroker\Src\Role
  */
-class IntroductionMessage extends Message
+class IntroductionMessage extends OutgoingMessage
 {
     /**
      * @var string
