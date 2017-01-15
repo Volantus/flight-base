@@ -9,6 +9,7 @@ use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\UnauthorizedException;
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
 use Volante\SkyBukkit\Common\Src\Server\Network\ClientFactory;
+use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
 use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;
 
 /**
@@ -22,17 +23,17 @@ class MessageServerService
     /**
      * @var MessageService
      */
-    private $messageService;
+    protected $messageService;
 
     /**
      * @var ClientFactory
      */
-    private $clientFactory;
+    protected $clientFactory;
 
     /**
      * @var Client[]
      */
-    private $clients = [];
+    protected $clients = [];
 
     /**
      * MessageServerService constructor.
@@ -135,6 +136,18 @@ class MessageServerService
         $this->authenticate($message->getSender());
         $message->getSender()->setRole($message->getRole());
         $this->writeInfoLine('MessageServerService', 'Client ' . $message->getSender()->getId() . ' introduced as ' . ClientRole::getTitle($message->getRole()) . '.');
+    }
+
+    /**
+     * @param RawMessage $rawMessage
+     */
+    protected function broadcastMessage(RawMessage $rawMessage)
+    {
+        $data = json_encode($rawMessage);
+
+        foreach ($this->clients as $client) {
+            $client->getConnection()->send($data);
+        }
     }
 
     /**
