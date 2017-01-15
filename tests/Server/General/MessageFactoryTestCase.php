@@ -1,7 +1,7 @@
 <?php
 namespace Volante\SkyBukkit\Common\Tests\Server\General;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Message;
+use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
 use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
 
@@ -30,7 +30,7 @@ abstract class MessageFactoryTestCase extends \PHPUnit_Framework_TestCase
      * @param RawMessage $rawMessage
      * @return mixed
      */
-    abstract protected function callFactory(RawMessage $rawMessage) : Message;
+    abstract protected function callFactory(RawMessage $rawMessage) : IncomingMessage;
 
     /**
      * @return array

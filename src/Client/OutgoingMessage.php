@@ -4,10 +4,10 @@ namespace Volante\SkyBukkit\Common\Src\Client;
 use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
 
 /**
- * Class Message
+ * Class OutgoingMessage
  * @package Volante\SkyBukkit\StatusBroker\Src\Network
  */
-abstract class Message
+abstract class OutgoingMessage
 {
     /**
      * @var string

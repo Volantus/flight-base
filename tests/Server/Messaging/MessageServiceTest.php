@@ -5,7 +5,7 @@ use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageService;
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Message;
+use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
 use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
 use Volante\SkyBukkit\Common\Src\Server\Network\RawMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;

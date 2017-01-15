@@ -1,7 +1,7 @@
 <?php
 namespace Volante\SkyBukkit\Common\Src\Server\Authentication;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Message;
+use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
 
 /**
@@ -10,7 +10,7 @@ use Volante\SkyBukkit\Common\Src\Server\Network\Client;
  * Date: 13.01.17
  * Time: 17:35
  */
-class AuthenticationMessage extends Message
+class AuthenticationMessage extends IncomingMessage
 {
     const TYPE = 'authentication';
 
