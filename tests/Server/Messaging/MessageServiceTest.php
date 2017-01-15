@@ -1,6 +1,9 @@
 <?php
 namespace Volante\SkyBukkit\RleayServer\Tests\Messaging;
 
+use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
+use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;
+use Volante\SkyBukkit\Common\Src\General\GeoPosition\IncomingGeoPositionMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageService;
@@ -39,6 +42,11 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
     private $authenticationMessageFactory;
 
     /**
+     * @var GeoPositionMessageFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
+    private $geoPositionMessageFactory;
+
+    /**
      * @var Client
      */
     private $sender;
@@ -49,6 +57,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->rawMessageFactory = $this->getMockBuilder(RawMessageFactory::class)->disableOriginalConstructor()->getMock();
         $this->introductionMessageFactory = $this->getMockBuilder(IntroductionMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->authenticationMessageFactory = $this->getMockBuilder(AuthenticationMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
+        $this->geoPositionMessageFactory = $this->getMockBuilder(GeoPositionMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
 
         $this->service = new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory);
     }
@@ -109,6 +118,24 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $result = $this->service->handle($this->sender, 'correct');
 
         self::assertInstanceOf(AuthenticationMessage::class, $result);
+        self::assertSame($expected, $result);
+    }
+
+
+    public function test_handle_geoPositionMessageHandledCorrectly()
+    {
+        $rawMessage = new NetworkRawMessage($this->sender, GeoPosition::TYPE, 'test', []);
+        $expected = new IncomingGeoPositionMessage($this->sender, new GeoPosition(1, 2, 3));
+
+        $this->rawMessageFactory->expects(self::once())
+            ->method('create')
+            ->with($this->sender, 'correct')
+            ->willReturn($rawMessage);
+        $this->geoPositionMessageFactory->expects(self::once())->method('create')->willReturn($expected);
+
+        $result = $this->service->handle($this->sender, 'correct');
+
+        self::assertInstanceOf(IncomingGeoPositionMessage::class, $result);
         self::assertSame($expected, $result);
     }
 }
