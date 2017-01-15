@@ -1,7 +1,7 @@
 <?php
 namespace Volante\SkyBukkit\Common\Tests\General\Network;
 
-use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
 
 /**
  * Class RawMessageFactory
@@ -11,9 +11,9 @@ class RawMessageFactory extends \Volante\SkyBukkit\Common\Src\General\Network\Ra
 {
     /**
      * @param string $json
-     * @return RawMessage
+     * @return BaseRawMessage
      */
-    public function createFromJson(string $json): RawMessage
+    public function createFromJson(string $json): BaseRawMessage
     {
         return parent::createFromJson($json);
     }

@@ -4,7 +4,7 @@ namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
 use Ratchet\ConnectionInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Volante\SkyBukkit\Common\Src\General\CLI\OutputOperations;
-use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
 use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\UnauthorizedException;
@@ -139,9 +139,9 @@ class MessageServerService
     }
 
     /**
-     * @param RawMessage $rawMessage
+     * @param BaseRawMessage $rawMessage
      */
-    protected function broadcastMessage(RawMessage $rawMessage)
+    protected function broadcastMessage(BaseRawMessage $rawMessage)
     {
         $data = json_encode($rawMessage);
 

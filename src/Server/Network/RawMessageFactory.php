@@ -1,6 +1,8 @@
 <?php
 namespace Volante\SkyBukkit\Common\Src\Server\Network;
 
+use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
+
 /**
  * Class MessageFactory
  *
@@ -9,14 +11,14 @@ namespace Volante\SkyBukkit\Common\Src\Server\Network;
 class RawMessageFactory extends \Volante\SkyBukkit\Common\Src\General\Network\RawMessageFactory
 {
     /**
-     * @param Client $sender
+     * @param Sender $sender
      * @param string $json
-     * @return RawMessage
+     * @return NetworkRawMessage
      */
-    public function create(Client $sender, string $json) : RawMessage
+    public function create(Sender $sender, string $json) : NetworkRawMessage
     {
         $json = $this->getJsonData($json);
-        $rawMessage = new RawMessage($sender, $json['type'], $json['title'], $json['data']);
+        $rawMessage = new NetworkRawMessage($sender, $json['type'], $json['title'], $json['data']);
 
         return $rawMessage;
     }

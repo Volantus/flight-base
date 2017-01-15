@@ -3,7 +3,7 @@ namespace Volante\SkyBukkit\Common\Src\Server\Authentication;
 
 use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class AuthenticationMessageFactory
@@ -17,10 +17,10 @@ class AuthenticationMessageFactory extends MessageFactory
     protected $type = AuthenticationMessage::TYPE;
 
     /**
-     * @param RawMessage $rawMessage
+     * @param NetworkRawMessage $rawMessage
      * @return AuthenticationMessage|IncomingMessage
      */
-    public function create(RawMessage $rawMessage) : IncomingMessage
+    public function create(NetworkRawMessage $rawMessage) : IncomingMessage
     {
         $this->validateString($rawMessage->getData(), 'token');
         return new AuthenticationMessage($rawMessage->getSender(), $rawMessage->getData()['token']);

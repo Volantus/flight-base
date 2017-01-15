@@ -9,10 +9,12 @@ use Volante\SkyBukkit\Common\Src\Client\OutgoingMessage;
  */
 class GeoPosition extends OutgoingMessage
 {
+    const TYPE = 'geoPosition';
+
     /**
      * @var string
      */
-    protected $type = 'geoPosition';
+    protected $type = self::TYPE;
 
     /**
      * @var string

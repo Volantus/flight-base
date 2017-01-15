@@ -1,7 +1,7 @@
 <?php
 namespace Volante\SkyBukkit\Common\Tests\General\Network;
 
-use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
 
 /**
  * Class MessageTest
@@ -20,7 +20,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
             ]
         ];
 
-        $message = new RawMessage($expected['type'], $expected['title'], $expected['data']);
+        $message = new BaseRawMessage($expected['type'], $expected['title'], $expected['data']);
         self::assertEquals($expected, $message->jsonSerialize());
     }
 }

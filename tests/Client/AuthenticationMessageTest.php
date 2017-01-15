@@ -2,7 +2,7 @@
 namespace Volante\SkyBukkit\Common\Tests\Client;
 
 use Volante\SkyBukkit\Common\Src\Client\AuthenticationMessage;
-use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
 
 /**
  * Class AuthenticationMessageTest
@@ -15,7 +15,7 @@ class AuthenticationMessageTest extends \PHPUnit_Framework_TestCase
         $message = new AuthenticationMessage('correctToken');
         $rawMessage = $message->toRawMessage();
 
-        self::assertInstanceOf(RawMessage::class, $rawMessage);
+        self::assertInstanceOf(BaseRawMessage::class, $rawMessage);
         self::assertEquals('authentication', $rawMessage->getType());
         self::assertEquals('Authentication' , $rawMessage->getTitle());
         self::assertEquals(['token' => 'correctToken'], $rawMessage->getData());

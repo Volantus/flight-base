@@ -1,35 +1,37 @@
 <?php
 namespace Volante\SkyBukkit\Common\Src\Server\Network;
 
+use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
+
 /**
  * Class Message
  * @package Volante\SkyBukkit\Monitor\Src\FlightStatus\Network
  */
-class RawMessage extends \Volante\SkyBukkit\Common\Src\General\Network\RawMessage
+class NetworkRawMessage extends \Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage
 {
     /**
-     * @var Client
+     * @var Sender
      */
     private $sender;
 
     /**
      * Message constructor.
-     * @param Client $client
+     * @param Sender $client
      * @param string $type
      * @param string $title
      * @param array $data
      * @internal param ClientInterface $client
      */
-    public function __construct(Client $client, string $type, string $title, array $data)
+    public function __construct(Sender $client, string $type, string $title, array $data)
     {
         parent::__construct($type, $title, $data);
         $this->sender = $client;
     }
 
     /**
-     * @return Client
+     * @return Sender
      */
-    public function getSender(): Client
+    public function getSender(): Sender
     {
         return $this->sender;
     }

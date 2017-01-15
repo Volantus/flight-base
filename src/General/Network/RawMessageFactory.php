@@ -12,12 +12,12 @@ abstract class RawMessageFactory
 {
     /**
      * @param string $json
-     * @return RawMessage
+     * @return BaseRawMessage
      */
-    protected function createFromJson(string $json) : RawMessage
+    protected function createFromJson(string $json) : BaseRawMessage
     {
         $json = $this->getJsonData($json);
-        return new RawMessage($json['type'], $json['title'], $json['data']);
+        return new BaseRawMessage($json['type'], $json['title'], $json['data']);
     }
 
     /**

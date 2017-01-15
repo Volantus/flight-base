@@ -2,7 +2,7 @@
 namespace Volante\SkyBukkit\RleayServer\Tests\Role;
 
 use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
 use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
 use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;
 use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessageFactory;
@@ -64,10 +64,10 @@ class IntroductionMessageFactoryTest extends MessageFactoryTestCase
     }
 
     /**
-     * @param RawMessage $rawMessage
+     * @param NetworkRawMessage $rawMessage
      * @return mixed
      */
-    protected function callFactory(RawMessage $rawMessage) : IncomingMessage
+    protected function callFactory(NetworkRawMessage $rawMessage) : IncomingMessage
     {
         return $this->factory->create($rawMessage);
     }

@@ -5,7 +5,7 @@ use Assert\Assertion;
 use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class IntroductionMessageFactory
@@ -19,10 +19,10 @@ class IntroductionMessageFactory extends MessageFactory
     protected $type = IntroductionMessage::TYPE;
 
     /**
-     * @param RawMessage $rawMessage
+     * @param NetworkRawMessage $rawMessage
      * @return IntroductionMessage|IncomingMessage
      */
-    public function create(RawMessage $rawMessage) : IncomingMessage
+    public function create(NetworkRawMessage $rawMessage) : IncomingMessage
     {
         $this->validate($rawMessage->getData());
         return new IntroductionMessage($rawMessage->getSender(), (int) $rawMessage->getData()['role']);

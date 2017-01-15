@@ -1,7 +1,7 @@
 <?php
 namespace Volante\SkyBukkit\Common\Tests\General\Network;
 
-use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
 
 /**
  * Class MessageFactoryTest
@@ -123,7 +123,7 @@ class MessageFactoryTest extends \PHPUnit_Framework_TestCase
         $data = json_encode($data);
         $message = $this->factory->createFromJson($data);
 
-        self::assertInstanceOf(RawMessage::class, $message);
+        self::assertInstanceOf(BaseRawMessage::class, $message);
         self::assertEquals('dummyMessage', $message->getType());
         self::assertEquals('This is a dummy message', $message->getTitle());
         self::assertEquals(['key01' => '123'], $message->getData());
