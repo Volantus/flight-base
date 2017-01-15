@@ -20,7 +20,7 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @var MessageServerService
      */
-    private $relayService;
+    private $messageServerService;
 
     /**
      * @var MessageService|\PHPUnit_Framework_MockObject_MockObject
@@ -49,7 +49,7 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
         $this->messageService = $this->getMockBuilder(MessageService::class)->disableOriginalConstructor()->getMock();
 
         $this->dummyOutput = $this->getMockBuilder(DummyOutput::class)->disableOriginalConstructor()->getMock();
-        $this->relayService = new MessageServerService($this->dummyOutput, $this->messageService, $this->clientFactory);
+        $this->messageServerService = new MessageServerService($this->dummyOutput, $this->messageService, $this->clientFactory);
     }
 
     public function test_newClient_factoryCalled()
@@ -58,7 +58,7 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
             ->method('get')->with($this->connection)
             ->willReturn(new Client(1, $this->connection, -1));
 
-        $this->relayService->newClient($this->connection);
+        $this->messageServerService->newClient($this->connection);
     }
 
     public function test_removeClient_disconnected()
@@ -67,8 +67,8 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
             ->method('get')->with($this->connection)
             ->willReturn(new Client(1, $this->connection, -1));
 
-        $this->relayService->newClient($this->connection);
-        $this->relayService->removeClient($this->connection);
+        $this->messageServerService->newClient($this->connection);
+        $this->messageServerService->removeClient($this->connection);
 
         self::assertTrue($this->connection->isConnectionClosed());
     }
@@ -81,7 +81,7 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
                 self::assertStringEndsWith('[<fg=cyan;options=bold>MessageServerService</>] <error>No connected client found!</error>', $messages);
             });
 
-        $this->relayService->newMessage($this->connection, '123');
+        $this->messageServerService->newMessage($this->connection, '123');
     }
 
     public function test_newMessage_messageServiceCalled()
@@ -94,8 +94,8 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
             ->method('handle')
             ->with($client, 'correct')->willReturn(new IntroductionMessage(new Client(1, $this->connection, -1), 99));
 
-        $this->relayService->newClient($this->connection);
-        $this->relayService->newMessage($this->connection, 'correct');
+        $this->messageServerService->newClient($this->connection);
+        $this->messageServerService->newMessage($this->connection, 'correct');
     }
 
     public function test_newMessage_introductionMessageHandledCorrectly()
@@ -108,8 +108,8 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
             ->method('handle')
             ->with($client, 'correct')->willReturn(new IntroductionMessage($client, ClientRole::OPERATOR));
 
-        $this->relayService->newClient($this->connection);
-        $this->relayService->newMessage($this->connection, 'correct');
+        $this->messageServerService->newClient($this->connection);
+        $this->messageServerService->newMessage($this->connection, 'correct');
         self::assertEquals(ClientRole::OPERATOR, $client->getRole());
     }
 
@@ -122,8 +122,8 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
             ->method('handle')
             ->with($client, 'correct')->willReturn(new IntroductionMessage($client, ClientRole::OPERATOR));
 
-        $this->relayService->newClient($this->connection);
-        $this->relayService->newMessage($this->connection, 'correct');
+        $this->messageServerService->newClient($this->connection);
+        $this->messageServerService->newMessage($this->connection, 'correct');
         self::assertTrue($this->connection->isConnectionClosed());
     }
 
@@ -136,8 +136,8 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
             ->method('handle')
             ->with($client, 'correct')->willReturn(new AuthenticationMessage($client, 'wrongToken'));
 
-        $this->relayService->newClient($this->connection);
-        $this->relayService->newMessage($this->connection, 'correct');
+        $this->messageServerService->newClient($this->connection);
+        $this->messageServerService->newMessage($this->connection, 'correct');
         self::assertFalse($client->isAuthenticated());
         self::assertTrue($this->connection->isConnectionClosed());
     }
@@ -151,8 +151,8 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
             ->method('handle')
             ->with($client, 'correct')->willReturn(new AuthenticationMessage($client, 'correctToken'));
 
-        $this->relayService->newClient($this->connection);
-        $this->relayService->newMessage($this->connection, 'correct');
+        $this->messageServerService->newClient($this->connection);
+        $this->messageServerService->newMessage($this->connection, 'correct');
         self::assertTrue($client->isAuthenticated());
     }
 }
