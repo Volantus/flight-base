@@ -2,12 +2,13 @@
 namespace Volante\SkyBukkit\Common\Src\Client;
 
 use Ratchet\Client\WebSocket;
+use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
 
 /**
  * Class Server
  * @package Volante\SkyBukkit\StatusBroker\Src\Network
  */
-class Server
+class Server implements Sender
 {
     const ROLE_LOCAL  = 'local';
     const ROLE_REMOTE = 'remote';
@@ -47,5 +48,30 @@ class Server
     public function getRole(): string
     {
         return $this->role;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAuthenticated(): bool
+    {
+        return true;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return 1;
+    }
+
+    /**
+     * @param string $data
+     * @return mixed
+     */
+    public function send(string $data)
+    {
+        $this->connection->send($data);
     }
 }

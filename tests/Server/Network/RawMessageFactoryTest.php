@@ -2,7 +2,7 @@
 namespace Volante\SkyBukkit\RleayServer\Tests\Message;
 
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
 use Volante\SkyBukkit\Common\Src\Server\Network\RawMessageFactory;
 use Volante\SkyBukkit\Common\Tests\Server\General\DummyConnection;
 
@@ -132,7 +132,7 @@ class RawMessageFactoryTest extends \PHPUnit_Framework_TestCase
         $data = json_encode($data);
         $message = $this->factory->create($this->sender, $data);
 
-        self::assertInstanceOf(RawMessage::class, $message);
+        self::assertInstanceOf(NetworkRawMessage::class, $message);
         self::assertEquals('dummyMessage', $message->getType());
         self::assertEquals('This is a dummy message', $message->getTitle());
         self::assertEquals(['key01' => '123'], $message->getData());

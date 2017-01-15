@@ -3,7 +3,7 @@ namespace Volante\SkyBukkit\Common\Tests\Server\General;
 
 use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class MessageFactoryTestCase
@@ -27,10 +27,10 @@ abstract class MessageFactoryTestCase extends \PHPUnit_Framework_TestCase
     abstract protected function getMessageType() : string;
 
     /**
-     * @param RawMessage $rawMessage
+     * @param NetworkRawMessage $rawMessage
      * @return mixed
      */
-    abstract protected function callFactory(RawMessage $rawMessage) : IncomingMessage;
+    abstract protected function callFactory(NetworkRawMessage $rawMessage) : IncomingMessage;
 
     /**
      * @return array
@@ -81,10 +81,10 @@ abstract class MessageFactoryTestCase extends \PHPUnit_Framework_TestCase
 
     /**
      * @param array $data
-     * @return RawMessage
+     * @return NetworkRawMessage
      */
-    protected function getRawMessage(array $data) : RawMessage
+    protected function getRawMessage(array $data) : NetworkRawMessage
     {
-        return new RawMessage($this->client, $this->getMessageType(), 'Dummy message', $data);
+        return new NetworkRawMessage($this->client, $this->getMessageType(), 'Dummy message', $data);
     }
 }

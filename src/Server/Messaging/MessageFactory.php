@@ -2,7 +2,7 @@
 namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
 
 use Assert\Assertion;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class MessageFactory
@@ -15,7 +15,7 @@ abstract class MessageFactory
      */
     protected $type = 'notDefined';
 
-    abstract public function create(RawMessage $rawMessage) : IncomingMessage;
+    abstract public function create(NetworkRawMessage $rawMessage) : IncomingMessage;
 
     /**
      * @return string

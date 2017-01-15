@@ -1,7 +1,7 @@
 <?php
 namespace Volante\SkyBukkit\Common\Src\Client;
 
-use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
 
 /**
  * Class OutgoingMessage
@@ -20,11 +20,11 @@ abstract class OutgoingMessage
     protected $messageTitle = 'undefined';
 
     /**
-     * @return \Volante\SkyBukkit\Common\Src\General\Network\RawMessage
+     * @return \Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage
      */
-    public function toRawMessage() : RawMessage
+    public function toRawMessage() : BaseRawMessage
     {
-        return new RawMessage($this->type, $this->messageTitle, $this->getRawData());
+        return new BaseRawMessage($this->type, $this->messageTitle, $this->getRawData());
     }
 
     /**

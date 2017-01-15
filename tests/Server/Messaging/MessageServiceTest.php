@@ -6,7 +6,7 @@ use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessageFact
 use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageService;
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
 use Volante\SkyBukkit\Common\Src\Server\Network\RawMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;
 use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessageFactory;
@@ -58,7 +58,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->rawMessageFactory->expects(self::once())
             ->method('create')
             ->with($this->sender, 'correct')
-            ->willReturn(new RawMessage($this->sender, IntroductionMessage::TYPE, 'test', []));
+            ->willReturn(new NetworkRawMessage($this->sender, IntroductionMessage::TYPE, 'test', []));
         $this->introductionMessageFactory->method('create')->willReturn(new IntroductionMessage($this->sender, 99));
 
         $this->service->handle($this->sender, 'correct');
@@ -73,14 +73,14 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->rawMessageFactory->expects(self::once())
             ->method('create')
             ->with($this->sender, 'correct')
-            ->willReturn(new RawMessage($this->sender, 'invalidMessageType', 'test', []));
+            ->willReturn(new NetworkRawMessage($this->sender, 'invalidMessageType', 'test', []));
 
         $this->service->handle($this->sender, 'correct');
     }
 
     public function test_handle_introductionMessageHandledCorrectly()
     {
-        $rawMessage = new RawMessage($this->sender, IntroductionMessage::TYPE, 'test', []);
+        $rawMessage = new NetworkRawMessage($this->sender, IntroductionMessage::TYPE, 'test', []);
         $expected = new IntroductionMessage($this->sender, 99);
 
         $this->rawMessageFactory->expects(self::once())
@@ -97,7 +97,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
 
     public function test_handle_authenticationMessageHandledCorrectly()
     {
-        $rawMessage = new RawMessage($this->sender, AuthenticationMessage::TYPE, 'test', []);
+        $rawMessage = new NetworkRawMessage($this->sender, AuthenticationMessage::TYPE, 'test', []);
         $expected = new AuthenticationMessage($this->sender, 'correctToken');
 
         $this->rawMessageFactory->expects(self::once())

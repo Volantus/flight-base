@@ -38,11 +38,11 @@ class MessageService
     }
 
     /**
-     * @param Client $sender
+     * @param Sender $sender
      * @param string $message
      * @return IncomingMessage
      */
-    public function handle(Client $sender, string $message) : IncomingMessage
+    public function handle(Sender $sender, string $message) : IncomingMessage
     {
         $rawMessage = $this->rawMessageFactory->create($sender, $message);
 

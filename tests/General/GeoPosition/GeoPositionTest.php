@@ -2,7 +2,7 @@
 namespace Volante\SkyBukkit\Common\Tests\General\GeoPosition;
 
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
-use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
 
 /**
  * Class GeoPositionTest
@@ -22,7 +22,7 @@ class GeoPositionTest extends \PHPUnit_Framework_TestCase
         $geoPosition = new GeoPosition($expected['latitude'], $expected['longitude'], $expected['altitude']);
         $rawMessage = $geoPosition->toRawMessage();
 
-        self::assertInstanceOf(RawMessage::class, $rawMessage);
+        self::assertInstanceOf(BaseRawMessage::class, $rawMessage);
         self::assertEquals('Geo position', $rawMessage->getTitle());
         self::assertEquals('geoPosition', $rawMessage->getType());
         self::assertEquals($expected, $rawMessage->getData());

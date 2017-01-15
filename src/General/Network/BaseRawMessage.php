@@ -5,7 +5,7 @@ namespace Volante\SkyBukkit\Common\Src\General\Network;
  * Class Message
  * @package Volante\SkyBukkit\Monitor\Src\FlightStatus\Network
  */
-class RawMessage implements \JsonSerializable
+class BaseRawMessage implements \JsonSerializable
 {
     /**
      * @var string

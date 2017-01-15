@@ -4,7 +4,7 @@ namespace Volante\SkyBukkit\Common\Tests\Server\Authentication;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
+use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
 use Volante\SkyBukkit\Common\Tests\Server\General\MessageFactoryTestCase;
 
 /**
@@ -52,10 +52,10 @@ class AuthenticationMessageFactoryTest extends MessageFactoryTestCase
     }
 
     /**
-     * @param RawMessage $rawMessage
+     * @param NetworkRawMessage $rawMessage
      * @return mixed
      */
-    protected function callFactory(RawMessage $rawMessage): IncomingMessage
+    protected function callFactory(NetworkRawMessage $rawMessage): IncomingMessage
     {
         return $this->factory->create($rawMessage);
     }

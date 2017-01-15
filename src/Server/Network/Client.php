@@ -2,6 +2,7 @@
 namespace Volante\SkyBukkit\Common\Src\Server\Network;
 
 use Ratchet\ConnectionInterface;
+use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
 use Volante\SkyBukkit\Common\Src\Server\Subscription\Topic;
 
 
@@ -9,7 +10,7 @@ use Volante\SkyBukkit\Common\Src\Server\Subscription\Topic;
  * Class Connection
  * @package Volante\SkyBukkit\Monitor\Src\FlightStatus\Network
  */
-class Client
+class Client implements Sender
 {
     /**
      * @var int
@@ -87,5 +88,14 @@ class Client
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @param string $data
+     * @return mixed
+     */
+    public function send(string $data)
+    {
+        $this->connection->send($data);
     }
 }

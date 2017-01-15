@@ -10,23 +10,23 @@ use Volante\SkyBukkit\Common\Src\Server\Network\Client;
 abstract class IncomingMessage
 {
     /**
-     * @var Client
+     * @var Sender
      */
     private $sender;
 
     /**
      * Message constructor.
-     * @param Client $sender
+     * @param Sender $sender
      */
-    public function __construct(Client $sender)
+    public function __construct(Sender $sender)
     {
         $this->sender = $sender;
     }
 
     /**
-     * @return Client
+     * @return Sender
      */
-    public function getSender(): Client
+    public function getSender(): Sender
     {
         return $this->sender;
     }
