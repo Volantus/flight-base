@@ -4,12 +4,12 @@ namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
 use Ratchet\ConnectionInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Volante\SkyBukkit\Common\Src\General\CLI\OutputOperations;
+use Volante\SkyBukkit\Common\Src\General\Network\RawMessage;
 use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\UnauthorizedException;
 use Volante\SkyBukkit\Common\Src\Server\Network\Client;
 use Volante\SkyBukkit\Common\Src\Server\Network\ClientFactory;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
 use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;
 
 /**
