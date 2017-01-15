@@ -20,14 +20,9 @@ class MessageService
     private $rawMessageFactory;
 
     /**
-     * @var IntroductionMessageFactory
+     * @var MessageFactory[]
      */
-    private $introductionMessageFactory;
-
-    /**
-     * @var AuthenticationMessageFactory
-     */
-    private $authenticationMessageFactory;
+    private $factories = [];
 
     /**
      * MessageService constructor.
@@ -38,8 +33,8 @@ class MessageService
     public function __construct(RawMessageFactory $rawMessageFactory = null, IntroductionMessageFactory $introductionMessageFactory = null, AuthenticationMessageFactory $authenticationMessageFactory = null)
     {
         $this->rawMessageFactory = $rawMessageFactory ?: new RawMessageFactory();
-        $this->introductionMessageFactory = $introductionMessageFactory ?: new IntroductionMessageFactory();
-        $this->authenticationMessageFactory = $authenticationMessageFactory ?: new AuthenticationMessageFactory();
+        $this->registerFactory($introductionMessageFactory ?: new IntroductionMessageFactory());
+        $this->registerFactory($authenticationMessageFactory ?: new AuthenticationMessageFactory());
     }
 
     /**
@@ -51,13 +46,18 @@ class MessageService
     {
         $rawMessage = $this->rawMessageFactory->create($sender, $message);
 
-        switch ($rawMessage->getType()) {
-            case IntroductionMessage::TYPE:
-                return $this->introductionMessageFactory->create($rawMessage);
-            case AuthenticationMessage::TYPE:
-                return $this->authenticationMessageFactory->create($rawMessage);
-            default:
-                throw new \InvalidArgumentException('Unable to handle message: given type <' . $rawMessage->getType() . '> is unknown');
+        if (isset($this->factories[$rawMessage->getType()])) {
+            return $this->factories[$rawMessage->getType()]->create($rawMessage);
         }
+
+        throw new \InvalidArgumentException('Unable to handle message: given type <' . $rawMessage->getType() . '> is unknown');
+    }
+
+    /**
+     * @param MessageFactory $factory
+     */
+    protected function registerFactory(MessageFactory $factory)
+    {
+        $this->factories[$factory->getType()] = $factory;
     }
 }
