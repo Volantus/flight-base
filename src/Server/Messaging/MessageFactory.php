@@ -2,6 +2,7 @@
 namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
 
 use Assert\Assertion;
+use Volante\SkyBukkit\Common\Src\Server\Network\RawMessage;
 
 /**
  * Class MessageFactory
@@ -12,7 +13,17 @@ abstract class MessageFactory
     /**
      * @var string
      */
-    protected $label = 'notDefined';
+    protected $type = 'notDefined';
+
+    abstract public function create(RawMessage $rawMessage) : Message;
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
 
     /**
      * @param array $data
@@ -20,8 +31,8 @@ abstract class MessageFactory
      */
     protected function validateString(array $data, string $key)
     {
-        Assertion::keyExists($data, $key, 'Invalid ' . $this->label . ' message: ' . $key . ' key is missing');
-        Assertion::string($data[$key], 'Invalid ' . $this->label . ' message: value of key ' . $key . ' is not a string');
+        Assertion::keyExists($data, $key, 'Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
+        Assertion::string($data[$key], 'Invalid ' . $this->type . ' message: value of key ' . $key . ' is not a string');
     }
 
     /**
@@ -30,7 +41,7 @@ abstract class MessageFactory
      */
     protected function validateNumeric(array $data, string $key)
     {
-        Assertion::keyExists($data, $key, 'Invalid ' . $this->label . ' message: ' . $key . ' key is missing');
-        Assertion::numeric($data[$key], 'Invalid ' . $this->label . ' message: value of key ' . $key . ' is not numeric');
+        Assertion::keyExists($data, $key, 'Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
+        Assertion::numeric($data[$key], 'Invalid ' . $this->type . ' message: value of key ' . $key . ' is not numeric');
     }
 }
