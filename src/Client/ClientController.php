@@ -43,9 +43,9 @@ class ClientController
     {
         $this->writeInfoLine('Controller', 'Starting event loop ...');
 
-        $this->loop->addPeriodicTimer(1, function () {
-            $this->checkConnections();
-        });
+        foreach ($this->connections as $role => $address) {
+            $this->connect($address, $role);
+        }
         $this->loop->run();
     }
 
@@ -73,6 +73,7 @@ class ClientController
                 $conn->on('close', function ($code = null, $reason = null) use ($server, $address, $role) {
                     $this->service->removeServer($server);
                     $this->writeErrorLine('Controller', "Connection to server " . $server->getRole() . " closed.");
+                    $this->connect($address, $role);
                 });
 
                 $conn->on('message', function($msg) use ($conn) {
@@ -83,15 +84,7 @@ class ClientController
                 $this->service->addServer($server);
             }, function (\Exception $e) use ($address, $role) {
                 $this->writeErrorLine('Controller', "Unable to connect to server " . $address . ": " . $e->getMessage());
+                $this->loop->addTimer(1, function() use ($address, $role) {$this->connect($address, $role);});
             });
-    }
-
-    private function checkConnections()
-    {
-        foreach ($this->connections as $role => $address) {
-            if (!$this->service->isConnected($role)) {
-                $this->connect($address, $role);
-            }
-        }
     }
 }
