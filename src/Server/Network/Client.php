@@ -56,7 +56,7 @@ class Client implements Sender
     /**
      * @param int $role
      */
-    public function setRole(int $role)
+    public function setRole($role)
     {
         $this->role = $role;
     }
@@ -92,10 +92,14 @@ class Client implements Sender
 
     /**
      * @param string $data
-     * @return mixed
      */
     public function send(string $data)
     {
         $this->connection->send($data);
+    }
+
+    public function disconnect()
+    {
+        $this->connection->close();
     }
 }

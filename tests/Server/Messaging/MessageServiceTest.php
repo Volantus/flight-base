@@ -59,7 +59,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->authenticationMessageFactory = $this->getMockBuilder(AuthenticationMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->geoPositionMessageFactory = $this->getMockBuilder(GeoPositionMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
 
-        $this->service = new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory);
+        $this->service = new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory);
     }
 
     public function test_handle_rawMessageServiceCalled()
