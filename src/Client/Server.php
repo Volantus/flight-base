@@ -69,10 +69,27 @@ class Server implements Sender
 
     /**
      * @param string $data
-     * @return mixed
      */
     public function send(string $data)
     {
         $this->connection->send($data);
+    }
+
+
+    public function setAuthenticated()
+    {
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+    public function disconnect()
+    {
+        $this->connection->close();
     }
 }

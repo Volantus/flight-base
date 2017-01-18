@@ -151,9 +151,9 @@ class MessageServerService
     }
 
     /**
-     * @param Client $client
+     * @param Sender $client
      */
-    private function authenticate(Client $client)
+    private function authenticate(Sender $client)
     {
         if (!$client->isAuthenticated()) {
             $this->disconnectClient($client);
@@ -162,11 +162,11 @@ class MessageServerService
     }
 
     /**
-     * @param Client $removedClient
+     * @param Sender $removedClient
      */
-    private function disconnectClient(Client $removedClient)
+    private function disconnectClient(Sender $removedClient)
     {
-        $removedClient->getConnection()->close();
+        $removedClient->disconnect();
         foreach ($this->clients as $i => $client) {
             if ($client === $removedClient) {
                 unset($this->clients[$i]);

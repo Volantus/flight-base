@@ -1,8 +1,6 @@
 <?php
 namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
 
-use Volante\SkyBukkit\Common\Src\Server\Network\Client;
-
 /**
  * Class Message
  * @package Volante\SkyBukkit\Common\Src\Server\FlightStatus\Network
