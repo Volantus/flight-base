@@ -20,7 +20,7 @@ class Server implements Sender
     private $connection;
 
     /**
-     * @var string
+     * @var int
      */
     private $role;
 
@@ -44,9 +44,9 @@ class Server implements Sender
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getRole(): string
+    public function getRole(): int
     {
         return $this->role;
     }
@@ -81,7 +81,7 @@ class Server implements Sender
     }
 
     /**
-     * @param string $role
+     * @param int $role
      */
     public function setRole($role)
     {
