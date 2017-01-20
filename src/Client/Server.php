@@ -1,4 +1,5 @@
 <?php
+
 namespace Volante\SkyBukkit\Common\Src\Client;
 
 use Ratchet\Client\WebSocket;
@@ -6,12 +7,13 @@ use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
 
 /**
  * Class Server
+ *
  * @package Volante\SkyBukkit\StatusBroker\Src\Network
  */
 class Server implements Sender
 {
-    const ROLE_LOCAL_RELAY_SERVER   = 1;
-    const ROLE_REMOTE_RELAY_SERVER  = 2;
+    const ROLE_LOCAL_RELAY_SERVER = 1;
+    const ROLE_REMOTE_RELAY_SERVER = 2;
     const ROLE_GEO_POSITION_SERVICE = 3;
 
     /**
@@ -26,10 +28,11 @@ class Server implements Sender
 
     /**
      * Server constructor.
+     *
      * @param WebSocket $connection
-     * @param string $role
+     * @param int       $role
      */
-    public function __construct(WebSocket $connection, string $role)
+    public function __construct(WebSocket $connection, int $role)
     {
         $this->connection = $connection;
         $this->role = $role;
