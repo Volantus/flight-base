@@ -50,19 +50,19 @@ class ClientController
     }
 
     /**
-     * @param string $role
+     * @param int $role
      * @param string $address
      */
-    protected function registerConnection(string $role, string $address)
+    protected function registerConnection(int $role, string $address)
     {
         $this->connections[$role] = $address;
     }
 
     /**
      * @param string $address
-     * @param string $role
+     * @param int $role
      */
-    private function connect(string $address, string $role)
+    private function connect(string $address, int $role)
     {
         $this->writeInfoLine('Controller', 'Connecting to server ' . $role . ' => ' . $address);
 

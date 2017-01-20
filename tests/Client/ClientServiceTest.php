@@ -48,7 +48,7 @@ class ClientServiceTest extends \PHPUnit_Framework_TestCase
         $this->dummyOutput = $this->getMockBuilder(DummyOutput::class)->disableOriginalConstructor()->getMock();
 
         $this->service = new ClientService($this->dummyOutput, $this->messageService);
-        $this->server = new Server($this->connection, 'test');
+        $this->server = new Server($this->connection, 99);
     }
 
     public function test_addServer_connected()
