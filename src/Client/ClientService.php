@@ -19,12 +19,12 @@ class ClientService
     /**
      * @var Server[]
      */
-    private $servers = [];
+    protected $servers = [];
 
     /**
      * @var MessageService
      */
-    private $messageService;
+    protected $messageService;
 
     /**
      * ClientService constructor.
@@ -60,7 +60,7 @@ class ClientService
      */
     public function isConnected(string $serverRole) : bool
     {
-        return array_key_exists($serverRole, $this->servers);
+        return isset($this->servers[$serverRole]);
     }
 
     /**
