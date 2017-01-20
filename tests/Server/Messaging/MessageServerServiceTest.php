@@ -20,27 +20,27 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @var MessageServerService
      */
-    private $messageServerService;
+    protected $messageServerService;
 
     /**
      * @var MessageService|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $messageService;
+    protected $messageService;
 
     /**
      * @var ClientFactory|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $clientFactory;
+    protected $clientFactory;
 
     /**
      * @var DummyConnection
      */
-    private $connection;
+    protected $connection;
 
     /**
      * @var DummyOutput|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $dummyOutput;
+    protected $dummyOutput;
 
     protected function setUp()
     {
@@ -49,7 +49,15 @@ class MessageServerServiceTest extends \PHPUnit_Framework_TestCase
         $this->messageService = $this->getMockBuilder(MessageService::class)->disableOriginalConstructor()->getMock();
 
         $this->dummyOutput = $this->getMockBuilder(DummyOutput::class)->disableOriginalConstructor()->getMock();
-        $this->messageServerService = new MessageServerService($this->dummyOutput, $this->messageService, $this->clientFactory);
+        $this->messageServerService = $this->createService();
+    }
+
+    /**
+     * @return MessageServerService
+     */
+    protected function createService() : MessageServerService
+    {
+        return new MessageServerService($this->dummyOutput, $this->messageService, $this->clientFactory);
     }
 
     public function test_newClient_factoryCalled()
