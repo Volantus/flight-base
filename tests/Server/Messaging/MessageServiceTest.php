@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\RleayServer\Tests\Messaging;
+namespace Volante\SkyBukkit\Common\Tests\Server\Messaging;
 
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;

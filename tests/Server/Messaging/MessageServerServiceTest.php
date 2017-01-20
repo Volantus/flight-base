@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\RleayServer\Tests\Messaging;
+namespace Volante\SkyBukkit\Common\Tests\Server\Messaging;
 
 use Symfony\Component\Console\Tests\Fixtures\DummyOutput;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
