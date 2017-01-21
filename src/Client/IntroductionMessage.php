@@ -42,7 +42,7 @@ class IntroductionMessage extends OutgoingMessage
     /**
      * @return array
      */
-    protected function getRawData(): array
+    public function getRawData(): array
     {
         return [
             'role' => $this->role

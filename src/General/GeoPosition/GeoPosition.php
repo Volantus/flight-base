@@ -76,7 +76,7 @@ class GeoPosition extends OutgoingMessage
     /**
      * @return array
      */
-    protected function getRawData(): array
+    public function getRawData(): array
     {
         return [
             'latitude'  => $this->latitude,

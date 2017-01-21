@@ -30,5 +30,5 @@ abstract class OutgoingMessage
     /**
      * @return array
      */
-    protected abstract function getRawData() : array;
+    public abstract function getRawData() : array;
 }
