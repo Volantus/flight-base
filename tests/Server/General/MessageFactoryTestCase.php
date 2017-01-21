@@ -80,6 +80,20 @@ abstract class MessageFactoryTestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @param string $key
+     */
+    protected function validateNotArray(string $key)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid ' . $this->getMessageType() . ' message: value of key ' . $key . ' is not an array');
+
+        $data = $this->getCorrectMessageData();
+        $data[$key] = 'abc';
+        $message = $this->getRawMessage($data);
+        $this->callFactory($message);
+    }
+
+    /**
      * @param array $data
      * @return NetworkRawMessage
      */
