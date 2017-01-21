@@ -23,32 +23,32 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @var MessageService
      */
-    private $service;
+    protected $service;
 
     /**
      * @var RawMessageFactory|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $rawMessageFactory;
+    protected $rawMessageFactory;
 
     /**
      * @var IntroductionMessageFactory|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $introductionMessageFactory;
+    protected $introductionMessageFactory;
 
     /**
      * @var AuthenticationMessageFactory|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $authenticationMessageFactory;
+    protected $authenticationMessageFactory;
 
     /**
      * @var GeoPositionMessageFactory|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $geoPositionMessageFactory;
+    protected $geoPositionMessageFactory;
 
     /**
      * @var Client
      */
-    private $sender;
+    protected $sender;
 
     protected function setUp()
     {
@@ -58,7 +58,15 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->authenticationMessageFactory = $this->getMockBuilder(AuthenticationMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->geoPositionMessageFactory = $this->getMockBuilder(GeoPositionMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
 
-        $this->service = new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory);
+        $this->service = $this->createService();
+    }
+
+    /**
+     * @return MessageService
+     */
+    protected function createService() : MessageService
+    {
+        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory);
     }
 
     public function test_handle_rawMessageServiceCalled()
