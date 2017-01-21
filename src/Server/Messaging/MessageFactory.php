@@ -44,4 +44,14 @@ abstract class MessageFactory
         Assertion::keyExists($data, $key, 'Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
         Assertion::numeric($data[$key], 'Invalid ' . $this->type . ' message: value of key ' . $key . ' is not numeric');
     }
+
+    /**
+     * @param array $data
+     * @param string $key
+     */
+    protected function validateArray(array $data, string $key)
+    {
+        Assertion::keyExists($data, $key, 'Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
+        Assertion::isArray($data[$key], 'Invalid ' . $this->type . ' message: value of key ' . $key . ' is not an array');
+    }
 }
