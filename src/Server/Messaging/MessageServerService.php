@@ -67,6 +67,7 @@ class MessageServerService
         $this->sandbox(function () use ($connection) {
             $client = $this->findClient($connection);
             $this->disconnectClient($client);
+            $this->writeInfoLine('MessageServerService', 'Client ' . $client->getId() . ' disconnected!');
         });
     }
 
