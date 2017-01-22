@@ -30,7 +30,7 @@ trait OutputOperations
      */
     protected function writeGreenLine(string $topic, string $message)
     {
-        $this->output->writeln('[<fg=blue>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] [<fg=green>' . $message . '</>]');
+        $this->output->writeln('[<fg=blue>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] <fg=green>' . $message . '</>');
     }
 
     /**
@@ -39,7 +39,7 @@ trait OutputOperations
      */
     protected function writeRedLine(string $topic, string $message)
     {
-        $this->output->writeln('[<fg=blue>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] [<fg=red>' . $message . '</>]');
+        $this->output->writeln('[<fg=blue>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] <fg=red>' . $message . '</>');
     }
 
     /**
