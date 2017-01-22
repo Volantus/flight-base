@@ -55,7 +55,7 @@ class MessageServerService
     {
         $this->sandbox(function () use ($connection) {
             $this->clients[] = $client = $this->clientFactory->get($connection);
-            $this->writeInfoLine('MessageServerService', 'New client ' . $client->getId() . ' connected!');
+            $this->writeGreenLine('MessageServerService', 'New client ' . $client->getId() . ' connected!');
         });
     }
 
@@ -67,7 +67,7 @@ class MessageServerService
         $this->sandbox(function () use ($connection) {
             $client = $this->findClient($connection);
             $this->disconnectClient($client);
-            $this->writeInfoLine('MessageServerService', 'Client ' . $client->getId() . ' disconnected!');
+            $this->writeRedLine('MessageServerService', 'Client ' . $client->getId() . ' disconnected!');
         });
     }
 
@@ -122,7 +122,7 @@ class MessageServerService
     {
         if ($message->getToken() === getenv('AUTH_TOKEN')) {
             $message->getSender()->setAuthenticated();
-            $this->writeInfoLine('MessageServerService', 'Client ' . $message->getSender()->getId() . ' authenticated successfully.');
+            $this->writeGreenLine('MessageServerService', 'Client ' . $message->getSender()->getId() . ' authenticated successfully.');
         } else {
             $this->disconnectClient($message->getSender());
             throw new UnauthorizedException('Client ' . $message->getSender()->getId() . ' tried to authenticate with wrong token!');
@@ -136,7 +136,7 @@ class MessageServerService
     {
         $this->authenticate($message->getSender());
         $message->getSender()->setRole($message->getRole());
-        $this->writeInfoLine('MessageServerService', 'Client ' . $message->getSender()->getId() . ' introduced as ' . ClientRole::getTitle($message->getRole()) . '.');
+        $this->writeGreenLine('MessageServerService', 'Client ' . $message->getSender()->getId() . ' introduced as ' . ClientRole::getTitle($message->getRole()) . '.');
     }
 
     /**

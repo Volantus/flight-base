@@ -28,6 +28,24 @@ trait OutputOperations
      * @param string $topic
      * @param string $message
      */
+    protected function writeGreenLine(string $topic, string $message)
+    {
+        $this->output->writeln('[<fg=green>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] ' . $message);
+    }
+
+    /**
+     * @param string $topic
+     * @param string $message
+     */
+    protected function writeRedLine(string $topic, string $message)
+    {
+        $this->output->writeln('[<fg=red>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] ' . $message);
+    }
+
+    /**
+     * @param string $topic
+     * @param string $message
+     */
     protected function writeErrorLine(string $topic, string $message)
     {
         $this->output->writeln('[<fg=blue>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] <error>' . $message . '</error>');
