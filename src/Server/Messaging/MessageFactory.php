@@ -31,8 +31,13 @@ abstract class MessageFactory
      */
     protected function validateString(array $data, string $key)
     {
-        Assertion::keyExists($data, $key, 'Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
-        Assertion::string($data[$key], 'Invalid ' . $this->type . ' message: value of key ' . $key . ' is not a string');
+        if (!isset($data[$key])) {
+            throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
+        }
+
+        if (!is_string($data[$key])) {
+            throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: value of key ' . $key . ' is not a string');
+        }
     }
 
     /**
@@ -41,8 +46,13 @@ abstract class MessageFactory
      */
     protected function validateNumeric(array $data, string $key)
     {
-        Assertion::keyExists($data, $key, 'Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
-        Assertion::numeric($data[$key], 'Invalid ' . $this->type . ' message: value of key ' . $key . ' is not numeric');
+        if (!isset($data[$key])) {
+            throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
+        }
+
+        if (!is_numeric($data[$key])) {
+            throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: value of key ' . $key . ' is not numeric');
+        }
     }
 
     /**
@@ -51,7 +61,12 @@ abstract class MessageFactory
      */
     protected function validateArray(array $data, string $key)
     {
-        Assertion::keyExists($data, $key, 'Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
-        Assertion::isArray($data[$key], 'Invalid ' . $this->type . ' message: value of key ' . $key . ' is not an array');
+        if (!isset($data[$key])) {
+            throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
+        }
+
+        if (!is_array($data[$key])) {
+            throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: value of key ' . $key . ' is not an array');
+        }
     }
 }
