@@ -16,12 +16,32 @@ trait OutputOperations
     protected $output;
 
     /**
+     * @var boolean
+     */
+    protected $debugEnabled;
+
+    /**
      * @param string $topic
      * @param string $message
      */
     protected function writeInfoLine(string $topic, string $message)
     {
         $this->output->writeln('[<fg=blue>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] ' . $message);
+    }
+
+    /**
+     * @param string $topic
+     * @param string $message
+     */
+    protected function writeDebugLine(string $topic, string $message)
+    {
+        if ($this->debugEnabled == null) {
+            $this->debugEnabled = getenv('OUTPUT_LEVEL') === 'DEBUG';
+        }
+
+        if ($this->debugEnabled) {
+            $this->output->writeln('[<fg=blue>' . $this->currentTime() . '</>] [<fg=cyan;options=bold>'. $topic . '</>] ' . $message);
+        }
     }
 
     /**
