@@ -4,6 +4,9 @@ namespace Volante\SkyBukkit\Common\Tests\Server\Messaging;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\IncomingGeoPositionMessage;
+use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatus;
+use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatusMessageFactory;
+use Volante\SkyBukkit\Common\Src\General\GyroStatus\IncomingGyroStatusMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageService;
@@ -46,6 +49,11 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
     protected $geoPositionMessageFactory;
 
     /**
+     * @var GyroStatusMessageFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $gyroStatusMessageFactory;
+
+    /**
      * @var Client
      */
     protected $sender;
@@ -57,6 +65,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->introductionMessageFactory = $this->getMockBuilder(IntroductionMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->authenticationMessageFactory = $this->getMockBuilder(AuthenticationMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->geoPositionMessageFactory = $this->getMockBuilder(GeoPositionMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
+        $this->gyroStatusMessageFactory = $this->getMockBuilder(GyroStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
 
         $this->service = $this->createService();
     }
@@ -66,7 +75,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
      */
     protected function createService() : MessageService
     {
-        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory);
+        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory);
     }
 
     public function test_handle_rawMessageServiceCalled()
@@ -143,6 +152,23 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $result = $this->service->handle($this->sender, 'correct');
 
         self::assertInstanceOf(IncomingGeoPositionMessage::class, $result);
+        self::assertSame($expected, $result);
+    }
+
+    public function test_handle_gyroStatusMessageHandledCorrectly()
+    {
+        $rawMessage = new NetworkRawMessage($this->sender, GyroStatus::TYPE, 'test', []);
+        $expected = new IncomingGyroStatusMessage($this->sender, new GyroStatus(1, 2, 3));
+
+        $this->rawMessageFactory->expects(self::once())
+            ->method('create')
+            ->with($this->sender, 'correct')
+            ->willReturn($rawMessage);
+        $this->gyroStatusMessageFactory->expects(self::once())->method('create')->willReturn($expected);
+
+        $result = $this->service->handle($this->sender, 'correct');
+
+        self::assertInstanceOf(IncomingGyroStatusMessage::class, $result);
         self::assertSame($expected, $result);
     }
 }
