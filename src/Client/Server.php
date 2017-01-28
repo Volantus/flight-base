@@ -12,9 +12,10 @@ use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
  */
 class Server implements Sender
 {
-    const ROLE_LOCAL_RELAY_SERVER = 1;
-    const ROLE_REMOTE_RELAY_SERVER = 2;
+    const ROLE_LOCAL_RELAY_SERVER   = 1;
+    const ROLE_REMOTE_RELAY_SERVER  = 2;
     const ROLE_GEO_POSITION_SERVICE = 3;
+    const ROLE_GYRO_STATUS_SERVICE  = 4;
 
     /**
      * @var WebSocket
