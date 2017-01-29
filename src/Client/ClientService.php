@@ -17,6 +17,11 @@ class ClientService
     use OutputOperations;
 
     /**
+     * @var int
+     */
+    protected $clientRole = -1;
+
+    /**
      * @var Server[]
      */
     protected $servers = [];
@@ -120,7 +125,7 @@ class ClientService
         $authentication = (new AuthenticationMessage(getenv('AUTH_TOKEN')))->toRawMessage();
         $server->getConnection()->send((json_encode($authentication)));
 
-        $introduction = (new IntroductionMessage(ClientRole::STATUS_BROKER))->toRawMessage();
+        $introduction = (new IntroductionMessage($this->clientRole))->toRawMessage();
         $server->getConnection()->send(json_encode($introduction));
     }
 }
