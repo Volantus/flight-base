@@ -76,7 +76,7 @@ class ClientServiceTest extends \PHPUnit_Framework_TestCase
     public function test_addServer_introductionSend()
     {
         $this->connection->expects(self::at(1))
-            ->method('send')->with('{"type":"introduction","title":"Introduction","data":{"role":-1}}');
+            ->method('send')->with('{"type":"introduction","title":"Introduction","data":{"role":' . $this->getExpectedClientRole() . '}}');
 
         $this->service->addServer($this->server);
     }
@@ -112,5 +112,13 @@ class ClientServiceTest extends \PHPUnit_Framework_TestCase
 
         $this->service->addServer($this->server);
         $this->service->newMessage($this->connection, 'correct');
+    }
+
+    /**
+     * @return int
+     */
+    protected function getExpectedClientRole() : int
+    {
+        return -1;
     }
 }
