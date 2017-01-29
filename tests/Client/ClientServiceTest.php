@@ -18,27 +18,27 @@ class ClientServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @var ClientService
      */
-    private $service;
+    protected $service;
 
     /**
      * @var MessageService|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $messageService;
+    protected $messageService;
 
     /**
      * @var WebSocket|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $connection;
+    protected $connection;
 
     /**
      * @var DummyOutput|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $dummyOutput;
+    protected $dummyOutput;
 
     /**
      * @var Server
      */
-    private $server;
+    protected $server;
 
     protected function setUp()
     {
@@ -47,7 +47,7 @@ class ClientServiceTest extends \PHPUnit_Framework_TestCase
         $this->messageService = $this->getMockBuilder(MessageService::class)->disableOriginalConstructor()->getMock();
         $this->dummyOutput = $this->getMockBuilder(DummyOutput::class)->disableOriginalConstructor()->getMock();
         $this->server = new Server($this->connection, 99);
-        
+
         $this->service = $this->createService();
     }
 
