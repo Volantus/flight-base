@@ -68,7 +68,7 @@ class ClientServiceTest extends \PHPUnit_Framework_TestCase
     public function test_addServer_introductionSend()
     {
         $this->connection->expects(self::at(1))
-            ->method('send')->with('{"type":"introduction","title":"Introduction","data":{"role":3}}');
+            ->method('send')->with('{"type":"introduction","title":"Introduction","data":{"role":-1}}');
 
         $this->service->addServer($this->server);
     }
