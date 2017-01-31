@@ -15,17 +15,17 @@ class ClientController
     /**
      * @var ExtEventLoop
      */
-    private $loop;
+    protected $loop;
 
     /**
      * @var ClientService
      */
-    private $service;
+    protected $service;
 
     /**
      * @var array
      */
-    private $connections = [];
+    protected $connections = [];
 
     /**
      * Controller constructor.
