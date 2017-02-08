@@ -1,6 +1,7 @@
 <?php
 namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
 
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\Motor\MotorStatusMessageFactory;
@@ -33,8 +34,9 @@ class MessageService
      * @param GeoPositionMessageFactory         $geoPositionMessageFactory
      * @param GyroStatusMessageFactory          $gyroStatusMessageFactory
      * @param MotorStatusMessageFactory         $motorStatusMessageFactory
+     * @param PIDFrequencyStatusMessageFactory  $PIDFrequencyStatusMessageFactory
      */
-    public function __construct(RawMessageFactory $rawMessageFactory = null, IntroductionMessageFactory $introductionMessageFactory = null, AuthenticationMessageFactory $authenticationMessageFactory = null, GeoPositionMessageFactory $geoPositionMessageFactory = null, GyroStatusMessageFactory $gyroStatusMessageFactory = null, MotorStatusMessageFactory $motorStatusMessageFactory = null)
+    public function __construct(RawMessageFactory $rawMessageFactory = null, IntroductionMessageFactory $introductionMessageFactory = null, AuthenticationMessageFactory $authenticationMessageFactory = null, GeoPositionMessageFactory $geoPositionMessageFactory = null, GyroStatusMessageFactory $gyroStatusMessageFactory = null, MotorStatusMessageFactory $motorStatusMessageFactory = null, PIDFrequencyStatusMessageFactory $PIDFrequencyStatusMessageFactory = null)
     {
         $this->rawMessageFactory = $rawMessageFactory ?: new RawMessageFactory();
         $this->registerFactory($introductionMessageFactory ?: new IntroductionMessageFactory());
@@ -42,6 +44,7 @@ class MessageService
         $this->registerFactory($geoPositionMessageFactory ?: new GeoPositionMessageFactory());
         $this->registerFactory($gyroStatusMessageFactory ?: new GyroStatusMessageFactory());
         $this->registerFactory($motorStatusMessageFactory ?: new MotorStatusMessageFactory());
+        $this->registerFactory($PIDFrequencyStatusMessageFactory ?: new PIDFrequencyStatusMessageFactory());
     }
 
     /**
