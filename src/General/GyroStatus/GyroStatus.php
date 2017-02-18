@@ -8,7 +8,7 @@ use Volante\SkyBukkit\Common\Src\Client\OutgoingMessage;
  *
  * @package Volante\SkyBukkit\Common\Src\GyroStatus
  */
-class GyroStatus extends OutgoingMessage
+class GyroStatus extends OutgoingMessage implements \JsonSerializable
 {
     const TYPE = 'gyroStatus';
 
@@ -86,5 +86,13 @@ class GyroStatus extends OutgoingMessage
             'pitch' => $this->pitch,
             'roll'  => $this->roll
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    function jsonSerialize()
+    {
+        return $this->getRawData();
     }
 }
