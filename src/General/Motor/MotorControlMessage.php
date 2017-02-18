@@ -1,0 +1,90 @@
+<?php
+namespace Volante\SkyBukkit\Common\Src\General\Motor;
+
+use Volante\SkyBukkit\Common\Src\Client\OutgoingMessage;
+use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatus;
+
+/**
+ * Class ManualMotorControlMessage
+ *
+ * @package Volante\SkyBukkit\Common\Src\General\Motor
+ */
+class MotorControlMessage extends OutgoingMessage
+{
+    const TYPE = 'motorControl';
+
+    /**
+     * @var string
+     */
+    protected $type = self::TYPE;
+
+    /**
+     * @var string
+     */
+    protected $messageTitle = 'Motor control';
+
+    /**
+     * @var GyroStatus
+     */
+    private $desiredPosition;
+
+    /**
+     * @var float
+     */
+    private $horizontalThrottle;
+
+    /**
+     * @var float
+     */
+    private $verticalThrottle;
+
+    /**
+     * ManualMotorControlMessage constructor.
+     *
+     * @param GyroStatus $desiredPosition
+     * @param float      $horizontalThrottle
+     * @param float      $verticalThrottle
+     */
+    public function __construct(GyroStatus $desiredPosition, float $horizontalThrottle, float $verticalThrottle)
+    {
+        $this->desiredPosition = $desiredPosition;
+        $this->horizontalThrottle = $horizontalThrottle;
+        $this->verticalThrottle = $verticalThrottle;
+    }
+
+    /**
+     * @return GyroStatus
+     */
+    public function getDesiredPosition(): GyroStatus
+    {
+        return $this->desiredPosition;
+    }
+
+    /**
+     * @return float
+     */
+    public function getHorizontalThrottle(): float
+    {
+        return $this->horizontalThrottle;
+    }
+
+    /**
+     * @return float
+     */
+    public function getVerticalThrottle(): float
+    {
+        return $this->verticalThrottle;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRawData(): array
+    {
+        return [
+            'desiredPosition'    => $this->desiredPosition,
+            'horizontalThrottle' => $this->horizontalThrottle,
+            'verticalThrottle'   => $this->verticalThrottle
+        ];
+    }
+}

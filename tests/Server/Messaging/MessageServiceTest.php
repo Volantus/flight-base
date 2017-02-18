@@ -10,8 +10,11 @@ use Volante\SkyBukkit\Common\Src\General\GeoPosition\IncomingGeoPositionMessage;
 use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatus;
 use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GyroStatus\IncomingGyroStatusMessage;
+use Volante\SkyBukkit\Common\Src\General\Motor\IncomingMotorControlMessage;
 use Volante\SkyBukkit\Common\Src\General\Motor\IncomingMotorStatusMessage;
 use Volante\SkyBukkit\Common\Src\General\Motor\Motor;
+use Volante\SkyBukkit\Common\Src\General\Motor\MotorControlMessage;
+use Volante\SkyBukkit\Common\Src\General\Motor\MotorControlMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\Motor\MotorStatus;
 use Volante\SkyBukkit\Common\Src\General\Motor\MotorStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
@@ -71,6 +74,11 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
     protected $PIDFrequencyStatusMessageFactory;
 
     /**
+     * @var MotorControlMessageFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $motorControlMessageFactory;
+
+    /**
      * @var Client
      */
     protected $sender;
@@ -85,6 +93,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->gyroStatusMessageFactory = $this->getMockBuilder(GyroStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->motorStatusMessageFactory = $this->getMockBuilder(MotorStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->PIDFrequencyStatusMessageFactory = $this->getMockBuilder(PIDFrequencyStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
+        $this->motorControlMessageFactory = $this->getMockBuilder(MotorControlMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
 
         $this->service = $this->createService();
     }
@@ -94,7 +103,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
      */
     protected function createService() : MessageService
     {
-        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory, $this->motorStatusMessageFactory, $this->PIDFrequencyStatusMessageFactory);
+        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory, $this->motorStatusMessageFactory, $this->PIDFrequencyStatusMessageFactory, $this->motorControlMessageFactory);
     }
 
     public function test_handle_rawMessageServiceCalled()
@@ -222,6 +231,23 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $result = $this->service->handle($this->sender, 'correct');
 
         self::assertInstanceOf(IncomingPIDFrequencyStatus::class, $result);
+        self::assertSame($expected, $result);
+    }
+
+    public function test_handle_motorControlCorrectly()
+    {
+        $rawMessage = new NetworkRawMessage($this->sender, MotorControlMessage::TYPE, 'test', []);
+        $expected = new IncomingMotorControlMessage($this->sender, new MotorControlMessage(new GyroStatus(1, 2, 3), 0.3, 0.5));
+
+        $this->rawMessageFactory->expects(self::once())
+            ->method('create')
+            ->with($this->sender, 'correct')
+            ->willReturn($rawMessage);
+        $this->motorControlMessageFactory->expects(self::once())->method('create')->willReturn($expected);
+
+        $result = $this->service->handle($this->sender, 'correct');
+
+        self::assertInstanceOf(IncomingMotorControlMessage::class, $result);
         self::assertSame($expected, $result);
     }
 }

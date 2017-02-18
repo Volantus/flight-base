@@ -4,6 +4,7 @@ namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatusMessageFactory;
+use Volante\SkyBukkit\Common\Src\General\Motor\MotorControlMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\Motor\MotorStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessageFactory;
 use Volante\SkyBukkit\Common\Src\Server\Network\RawMessageFactory;
@@ -35,8 +36,9 @@ class MessageService
      * @param GyroStatusMessageFactory          $gyroStatusMessageFactory
      * @param MotorStatusMessageFactory         $motorStatusMessageFactory
      * @param PIDFrequencyStatusMessageFactory  $PIDFrequencyStatusMessageFactory
+     * @param MotorControlMessageFactory        $motorControlMessageFactory
      */
-    public function __construct(RawMessageFactory $rawMessageFactory = null, IntroductionMessageFactory $introductionMessageFactory = null, AuthenticationMessageFactory $authenticationMessageFactory = null, GeoPositionMessageFactory $geoPositionMessageFactory = null, GyroStatusMessageFactory $gyroStatusMessageFactory = null, MotorStatusMessageFactory $motorStatusMessageFactory = null, PIDFrequencyStatusMessageFactory $PIDFrequencyStatusMessageFactory = null)
+    public function __construct(RawMessageFactory $rawMessageFactory = null, IntroductionMessageFactory $introductionMessageFactory = null, AuthenticationMessageFactory $authenticationMessageFactory = null, GeoPositionMessageFactory $geoPositionMessageFactory = null, GyroStatusMessageFactory $gyroStatusMessageFactory = null, MotorStatusMessageFactory $motorStatusMessageFactory = null, PIDFrequencyStatusMessageFactory $PIDFrequencyStatusMessageFactory = null, MotorControlMessageFactory $motorControlMessageFactory = null)
     {
         $this->rawMessageFactory = $rawMessageFactory ?: new RawMessageFactory();
         $this->registerFactory($introductionMessageFactory ?: new IntroductionMessageFactory());
@@ -45,6 +47,7 @@ class MessageService
         $this->registerFactory($gyroStatusMessageFactory ?: new GyroStatusMessageFactory());
         $this->registerFactory($motorStatusMessageFactory ?: new MotorStatusMessageFactory());
         $this->registerFactory($PIDFrequencyStatusMessageFactory ?: new PIDFrequencyStatusMessageFactory());
+        $this->registerFactory($motorControlMessageFactory ?: new MotorControlMessageFactory());
     }
 
     /**
