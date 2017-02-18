@@ -78,7 +78,7 @@ class RawMessageFactoryTest extends \PHPUnit_Framework_TestCase
     public function test_create_typeEmpty()
     {
         $data = $this->getCorrectMessage();
-        $data['type'] = null;
+        $data['type'] = '';
         $this->factory->create($this->sender, json_encode($data));
     }
 
@@ -89,7 +89,7 @@ class RawMessageFactoryTest extends \PHPUnit_Framework_TestCase
     public function test_create_titleEmpty()
     {
         $data = $this->getCorrectMessage();
-        $data['title'] = null;
+        $data['title'] = '';
         $this->factory->create($this->sender, json_encode($data));
     }
 
@@ -117,7 +117,7 @@ class RawMessageFactoryTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Invalid message format: attribute <data> is not a array
+     * @expectedExceptionMessage Invalid message format: attribute <data> is not an array
      */
     public function test_create_dataNotArray()
     {
