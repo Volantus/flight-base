@@ -1,8 +1,6 @@
 <?php
 namespace Volante\SkyBukkit\Common\Src\General\Network;
 
-use Assert\Assertion;
-
 /**
  * Class MessageFactory
  *
@@ -28,7 +26,10 @@ abstract class RawMessageFactory
     {
         $json = json_decode($json, true);
 
-        Assertion::isArray($json, 'Invalid message format: invalid json format');
+        if (!is_array($json)) {
+            throw new \InvalidArgumentException('Invalid message format: invalid json format');
+        }
+
         $this->validate($json);
 
         return $json;
