@@ -34,6 +34,9 @@ class IntroductionMessageFactory extends MessageFactory
     protected function validate(array $data)
     {
         $this->validateNumeric($data, 'role');
-        Assertion::inArray($data['role'], ClientRole::getSupportedRoles(), 'Invalid ' . IntroductionMessage::TYPE . ' message: given role is not supported');
+
+        if (!in_array($data['role'], ClientRole::getSupportedRoles())) {
+            throw new \InvalidArgumentException('Invalid ' . IntroductionMessage::TYPE . ' message: given role is not supported');
+        }
     }
 }
