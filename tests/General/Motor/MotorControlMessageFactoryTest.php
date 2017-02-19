@@ -127,6 +127,16 @@ class MotorControlMessageFactoryTest extends MessageFactoryTestCase
         $this->validateNotNumeric('verticalThrottle');
     }
 
+    public function test_create_motorStartedMissing()
+    {
+        $this->validateMissingKey('motorsStarted');
+    }
+
+    public function test_create_motorStartedNotBool()
+    {
+        $this->validateNotBool('motorsStarted');
+    }
+
     /**
      * @return string
      */

@@ -33,9 +33,10 @@ class MotorControlMessageFactory extends MessageFactory
 
         $this->validateNumeric($data, 'horizontalThrottle');
         $this->validateNumeric($data, 'verticalThrottle');
+        $this->validateBool($data, 'motorsStarted');
 
         $gyroStatus = new GyroStatus($data['desiredPosition']['yaw'], $data['desiredPosition']['roll'], $data['desiredPosition']['pitch']);
-        $motorControl = new MotorControlMessage($gyroStatus, $data['horizontalThrottle'], $data['verticalThrottle']);
+        $motorControl = new MotorControlMessage($gyroStatus, $data['horizontalThrottle'], $data['verticalThrottle'], $data['motorsStarted']);
 
         return new IncomingMotorControlMessage($rawMessage->getSender(), $motorControl);
     }

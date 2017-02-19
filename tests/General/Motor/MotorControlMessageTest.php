@@ -15,11 +15,12 @@ class MotorControlMessageTest extends \PHPUnit_Framework_TestCase
     public function test_toRawMessage_correct()
     {
         $expected = [
-            'desiredPosition' => new GyroStatus(1, 2, 3),
-            'horizontalThrottle'  => 0.5,
-            'verticalThrottle'    => 0.3
+            'desiredPosition'    => new GyroStatus(1, 2, 3),
+            'horizontalThrottle' => 0.5,
+            'verticalThrottle'   => 0.3,
+            'motorsStarted'      => true
         ];
-        $motorStatus = new MotorControlMessage($expected['desiredPosition'], $expected['horizontalThrottle'], $expected['verticalThrottle']);
+        $motorStatus = new MotorControlMessage($expected['desiredPosition'], $expected['horizontalThrottle'], $expected['verticalThrottle'], true);
         $result = $motorStatus->toRawMessage();
 
         self::assertInstanceOf(BaseRawMessage::class, $result);

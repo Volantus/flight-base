@@ -39,17 +39,24 @@ class MotorControlMessage extends OutgoingMessage
     private $verticalThrottle;
 
     /**
+     * @var bool
+     */
+    private $motorsStarted;
+
+    /**
      * ManualMotorControlMessage constructor.
      *
      * @param GyroStatus $desiredPosition
      * @param float      $horizontalThrottle
      * @param float      $verticalThrottle
+     * @param bool       $motorsStarted
      */
-    public function __construct(GyroStatus $desiredPosition, float $horizontalThrottle, float $verticalThrottle)
+    public function __construct(GyroStatus $desiredPosition, float $horizontalThrottle, float $verticalThrottle, bool $motorsStarted)
     {
         $this->desiredPosition = $desiredPosition;
         $this->horizontalThrottle = $horizontalThrottle;
         $this->verticalThrottle = $verticalThrottle;
+        $this->motorsStarted = $motorsStarted;
     }
 
     /**
@@ -77,6 +84,14 @@ class MotorControlMessage extends OutgoingMessage
     }
 
     /**
+     * @return bool
+     */
+    public function areMotorsStarted(): bool
+    {
+        return $this->motorsStarted;
+    }
+
+    /**
      * @return array
      */
     public function getRawData(): array
@@ -84,7 +99,8 @@ class MotorControlMessage extends OutgoingMessage
         return [
             'desiredPosition'    => $this->desiredPosition,
             'horizontalThrottle' => $this->horizontalThrottle,
-            'verticalThrottle'   => $this->verticalThrottle
+            'verticalThrottle'   => $this->verticalThrottle,
+            'motorsStarted'      => $this->motorsStarted
         ];
     }
 }

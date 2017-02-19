@@ -237,7 +237,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
     public function test_handle_motorControlCorrectly()
     {
         $rawMessage = new NetworkRawMessage($this->sender, MotorControlMessage::TYPE, 'test', []);
-        $expected = new IncomingMotorControlMessage($this->sender, new MotorControlMessage(new GyroStatus(1, 2, 3), 0.3, 0.5));
+        $expected = new IncomingMotorControlMessage($this->sender, new MotorControlMessage(new GyroStatus(1, 2, 3), 0.3, 0.5, true));
 
         $this->rawMessageFactory->expects(self::once())
             ->method('create')
