@@ -69,6 +69,21 @@ abstract class MessageFactoryTestCase extends \PHPUnit_Framework_TestCase
     /**
      * @param string $key
      */
+    protected function validateNotBool(string $key)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid ' . $this->getMessageType() . ' message: value of key ' . $key . ' is not bool');
+
+        $data = $this->getCorrectMessageData();
+        $data[$key] = 'abc';
+        $message = $this->getRawMessage($data);
+        $this->callFactory($message);
+    }
+
+
+    /**
+     * @param string $key
+     */
     protected function validateNotString(string $key)
     {
         $this->expectException(\InvalidArgumentException::class);

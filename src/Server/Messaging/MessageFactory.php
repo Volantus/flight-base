@@ -59,6 +59,22 @@ abstract class MessageFactory
      * @param array $data
      * @param string $key
      */
+    protected function validateBool(array $data, string $key)
+    {
+        if (!isset($data[$key])) {
+            throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
+        }
+
+        if (!is_bool($data[$key])) {
+            throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: value of key ' . $key . ' is not bool');
+        }
+    }
+
+
+    /**
+     * @param array $data
+     * @param string $key
+     */
     protected function validateArray(array $data, string $key)
     {
         if (!isset($data[$key])) {
