@@ -95,6 +95,14 @@ class Motor implements \JsonSerializable
     }
 
     /**
+     * @return int
+     */
+    public function getGpioPin(): int
+    {
+        return $this->gpioPin;
+    }
+
+    /**
      * @inheritdoc
      */
     function jsonSerialize()
