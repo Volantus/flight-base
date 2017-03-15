@@ -2,8 +2,12 @@
 namespace Volante\SkyBukkit\Common\Tests\Server\Messaging;
 
 use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDFrequencyStatus;
+use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDTuningStatusMessage;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatus;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatusMessageFactory;
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatus;
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusCollection;
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\IncomingGeoPositionMessage;
@@ -79,6 +83,11 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
     protected $motorControlMessageFactory;
 
     /**
+     * @var PIDTuningStatusMessageFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $pidTuningStatusMessageFactory;
+
+    /**
      * @var Client
      */
     protected $sender;
@@ -94,6 +103,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->motorStatusMessageFactory = $this->getMockBuilder(MotorStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->PIDFrequencyStatusMessageFactory = $this->getMockBuilder(PIDFrequencyStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->motorControlMessageFactory = $this->getMockBuilder(MotorControlMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
+        $this->pidTuningStatusMessageFactory = $this->getMockBuilder(PIDTuningStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
 
         $this->service = $this->createService();
     }
@@ -103,7 +113,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
      */
     protected function createService() : MessageService
     {
-        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory, $this->motorStatusMessageFactory, $this->PIDFrequencyStatusMessageFactory, $this->motorControlMessageFactory);
+        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory, $this->motorStatusMessageFactory, $this->PIDFrequencyStatusMessageFactory, $this->motorControlMessageFactory, $this->pidTuningStatusMessageFactory);
     }
 
     public function test_handle_rawMessageServiceCalled()
@@ -248,6 +258,23 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $result = $this->service->handle($this->sender, 'correct');
 
         self::assertInstanceOf(IncomingMotorControlMessage::class, $result);
+        self::assertSame($expected, $result);
+    }
+
+    public function test_handle_pidTuningStatusCorrect()
+    {
+        $rawMessage = new NetworkRawMessage($this->sender, PIDTuningStatusCollection::TYPE, 'test', []);
+        $expected = new IncomingPIDTuningStatusMessage($this->sender, new PIDTuningStatusCollection(new PIDTuningStatus(1, 2, 3), new PIDTuningStatus(1, 2, 3), new PIDTuningStatus(1, 2, 3)));
+
+        $this->rawMessageFactory->expects(self::once())
+            ->method('create')
+            ->with($this->sender, 'correct')
+            ->willReturn($rawMessage);
+        $this->pidTuningStatusMessageFactory->expects(self::once())->method('create')->willReturn($expected);
+
+        $result = $this->service->handle($this->sender, 'correct');
+
+        self::assertInstanceOf(IncomingPIDTuningStatusMessage::class, $result);
         self::assertSame($expected, $result);
     }
 }
