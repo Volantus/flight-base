@@ -3,6 +3,7 @@ namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
 
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusMessageFactory;
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningUpdateMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\Motor\MotorControlMessageFactory;
@@ -39,8 +40,9 @@ class MessageService
      * @param PIDFrequencyStatusMessageFactory   $PIDFrequencyStatusMessageFactory
      * @param MotorControlMessageFactory         $motorControlMessageFactory
      * @param PIDTuningStatusMessageFactory|null $PIDTuningStatusMessageFactory
+     * @param PIDTuningUpdateMessageFactory      $PIDTuningUpdateMessageFactory
      */
-    public function __construct(RawMessageFactory $rawMessageFactory = null, IntroductionMessageFactory $introductionMessageFactory = null, AuthenticationMessageFactory $authenticationMessageFactory = null, GeoPositionMessageFactory $geoPositionMessageFactory = null, GyroStatusMessageFactory $gyroStatusMessageFactory = null, MotorStatusMessageFactory $motorStatusMessageFactory = null, PIDFrequencyStatusMessageFactory $PIDFrequencyStatusMessageFactory = null, MotorControlMessageFactory $motorControlMessageFactory = null, PIDTuningStatusMessageFactory $PIDTuningStatusMessageFactory = null)
+    public function __construct(RawMessageFactory $rawMessageFactory = null, IntroductionMessageFactory $introductionMessageFactory = null, AuthenticationMessageFactory $authenticationMessageFactory = null, GeoPositionMessageFactory $geoPositionMessageFactory = null, GyroStatusMessageFactory $gyroStatusMessageFactory = null, MotorStatusMessageFactory $motorStatusMessageFactory = null, PIDFrequencyStatusMessageFactory $PIDFrequencyStatusMessageFactory = null, MotorControlMessageFactory $motorControlMessageFactory = null, PIDTuningStatusMessageFactory $PIDTuningStatusMessageFactory = null, PIDTuningUpdateMessageFactory $PIDTuningUpdateMessageFactory = null)
     {
         $this->rawMessageFactory = $rawMessageFactory ?: new RawMessageFactory();
         $this->registerFactory($introductionMessageFactory ?: new IntroductionMessageFactory());
@@ -51,6 +53,7 @@ class MessageService
         $this->registerFactory($PIDFrequencyStatusMessageFactory ?: new PIDFrequencyStatusMessageFactory());
         $this->registerFactory($motorControlMessageFactory ?: new MotorControlMessageFactory());
         $this->registerFactory($PIDTuningStatusMessageFactory ?: new PIDTuningStatusMessageFactory());
+        $this->registerFactory($PIDTuningUpdateMessageFactory ?: new PIDTuningUpdateMessageFactory());
     }
 
     /**

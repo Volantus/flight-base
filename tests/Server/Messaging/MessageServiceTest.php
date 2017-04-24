@@ -3,11 +3,14 @@ namespace Volante\SkyBukkit\Common\Tests\Server\Messaging;
 
 use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDFrequencyStatus;
 use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDTuningStatusMessage;
+use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDTuningUpdateMessage;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatus;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatusMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatus;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusCollection;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusMessageFactory;
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningUpdateCollection;
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningUpdateMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;
 use Volante\SkyBukkit\Common\Src\General\GeoPosition\IncomingGeoPositionMessage;
@@ -88,6 +91,11 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
     protected $pidTuningStatusMessageFactory;
 
     /**
+     * @var PIDTuningUpdateMessageFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $pidTuningUpdateMessageFactory;
+
+    /**
      * @var Client
      */
     protected $sender;
@@ -104,6 +112,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->PIDFrequencyStatusMessageFactory = $this->getMockBuilder(PIDFrequencyStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->motorControlMessageFactory = $this->getMockBuilder(MotorControlMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->pidTuningStatusMessageFactory = $this->getMockBuilder(PIDTuningStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
+        $this->pidTuningUpdateMessageFactory = $this->getMockBuilder(PIDTuningUpdateMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
 
         $this->service = $this->createService();
     }
@@ -113,7 +122,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
      */
     protected function createService() : MessageService
     {
-        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory, $this->motorStatusMessageFactory, $this->PIDFrequencyStatusMessageFactory, $this->motorControlMessageFactory, $this->pidTuningStatusMessageFactory);
+        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory, $this->motorStatusMessageFactory, $this->PIDFrequencyStatusMessageFactory, $this->motorControlMessageFactory, $this->pidTuningStatusMessageFactory, $this->pidTuningUpdateMessageFactory);
     }
 
     public function test_handle_rawMessageServiceCalled()
@@ -275,6 +284,23 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $result = $this->service->handle($this->sender, 'correct');
 
         self::assertInstanceOf(IncomingPIDTuningStatusMessage::class, $result);
+        self::assertSame($expected, $result);
+    }
+
+    public function test_handle_pidTuningUpdateCorrect()
+    {
+        $rawMessage = new NetworkRawMessage($this->sender, PIDTuningUpdateCollection::TYPE, 'test', []);
+        $expected = new IncomingPIDTuningUpdateMessage($this->sender, new PIDTuningUpdateCollection(new PIDTuningStatus(1, 2, 3), new PIDTuningStatus(1, 2, 3), new PIDTuningStatus(1, 2, 3)));
+
+        $this->rawMessageFactory->expects(self::once())
+            ->method('create')
+            ->with($this->sender, 'correct')
+            ->willReturn($rawMessage);
+        $this->pidTuningUpdateMessageFactory->expects(self::once())->method('create')->willReturn($expected);
+
+        $result = $this->service->handle($this->sender, 'correct');
+
+        self::assertInstanceOf(IncomingPIDTuningUpdateMessage::class, $result);
         self::assertSame($expected, $result);
     }
 }
