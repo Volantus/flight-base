@@ -2,10 +2,10 @@
 namespace Volante\SkyBukkit\Common\Src\General\FlightController;
 
 /**
- * Class IncomingPIDTuningStatusMessage
+ * Class IncomingPIDTuningUpdateMessage
  *
  * @package Volante\SkyBukkit\Common\Src\General\FlightController
  */
-class IncomingPIDTuningStatusMessage extends IncomingPIDTuningMessage
+class IncomingPIDTuningUpdateMessage extends IncomingPIDTuningMessage
 {
 }

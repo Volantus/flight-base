@@ -2,13 +2,13 @@
 namespace Volante\SkyBukkit\Common\Src\General\FlightController;
 
 /**
- * Class PIDTuningStatusMessage
+ * Class PIDTuningUpdateCollection
  *
  * @package Volante\SkyBukkit\Common\Src\General\FlightController
  */
-class PIDTuningStatusCollection extends PIDTuningCollection
+class PIDTuningUpdateCollection extends PIDTuningCollection
 {
-    const TYPE = 'pidTuningStatus';
+    const TYPE = 'pidTuningUpdate';
 
     /**
      * @var string
@@ -18,5 +18,5 @@ class PIDTuningStatusCollection extends PIDTuningCollection
     /**
      * @var string
      */
-    protected $messageTitle = 'PID tuning status';
+    protected $messageTitle = 'PID tuning update';
 }

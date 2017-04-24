@@ -1,24 +1,24 @@
 <?php
 namespace Volante\SkyBukkit\Common\Tests\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDTuningStatusMessage;
+use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDTuningUpdateMessage;
 use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningMessageFactory;
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusCollection;
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusMessageFactory;
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningUpdateCollection;
+use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningUpdateMessageFactory;
 
 /**
- * Class PIDTuningStatusMessageFactoryTest
+ * Class PIDTuningUpdateMessageFactoryTest
  *
  * @package Volante\SkyBukkit\Common\Tests\General\FlightController
  */
-class PIDTuningStatusMessageFactoryTest extends PIDTuningMessageFactoryTest
+class PIDTuningUpdateMessageFactoryTest extends PIDTuningMessageFactoryTest
 {
     /**
      * @return string
      */
     protected function getMessageType(): string
     {
-        return PIDTuningStatusCollection::TYPE;
+        return PIDTuningUpdateCollection::TYPE;
     }
 
     /**
@@ -26,7 +26,7 @@ class PIDTuningStatusMessageFactoryTest extends PIDTuningMessageFactoryTest
      */
     protected function createFactory(): PIDTuningMessageFactory
     {
-        return new PIDTuningStatusMessageFactory();
+        return new PIDTuningUpdateMessageFactory();
     }
 
     /**
@@ -34,6 +34,6 @@ class PIDTuningStatusMessageFactoryTest extends PIDTuningMessageFactoryTest
      */
     protected function getExpectedMessageClass(): string
     {
-        return IncomingPIDTuningStatusMessage::class;
+        return IncomingPIDTuningUpdateMessage::class;
     }
 }
