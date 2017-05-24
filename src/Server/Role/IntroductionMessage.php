@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Role;
+namespace Volantus\FlightBase\Src\Server\Role;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\Client;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\Client;
 
 /**
  * Class IntroduceMessage
- * @package Volante\SkyBukkit\Common\Src\Server\Role
+ * @package Volantus\FlightBase\Src\Server\Role
  */
 class IntroductionMessage extends IncomingMessage
 {

@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Network;
+namespace Volantus\FlightBase\Src\Server\Network;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
+use Volantus\FlightBase\Src\Server\Messaging\Sender;
 
 /**
  * Class Message
  * @package Volante\SkyBukkit\Monitor\Src\FlightStatus\Network
  */
-class NetworkRawMessage extends \Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage
+class NetworkRawMessage extends \Volantus\FlightBase\Src\General\Network\BaseRawMessage
 {
     /**
      * @var Sender

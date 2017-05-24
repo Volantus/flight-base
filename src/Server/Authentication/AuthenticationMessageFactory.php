@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Authentication;
+namespace Volantus\FlightBase\Src\Server\Authentication;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Messaging\MessageFactory;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class AuthenticationMessageFactory
- * @package Volante\SkyBukkit\Common\Src\Server\Authentication
+ * @package Volantus\FlightBase\Src\Server\Authentication
  */
 class AuthenticationMessageFactory extends MessageFactory
 {

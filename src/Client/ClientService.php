@@ -1,16 +1,16 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Client;
+namespace Volantus\FlightBase\Src\Client;
 
 use Ratchet\Client\WebSocket;
 use Symfony\Component\Console\Output\OutputInterface;
-use Volante\SkyBukkit\Common\Src\General\CLI\OutputOperations;
-use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageService;
+use Volantus\FlightBase\Src\General\CLI\OutputOperations;
+use Volantus\FlightBase\Src\General\Role\ClientRole;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Messaging\MessageService;
 
 /**
  * Class ClientService
- * @package Volante\SkyBukkit\Common\Src\Client
+ * @package Volantus\FlightBase\Src\Client
  */
 class ClientService
 {

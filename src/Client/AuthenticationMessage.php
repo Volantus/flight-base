@@ -1,9 +1,9 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Client;
+namespace Volantus\FlightBase\Src\Client;
 
 /**
  * Class AuthenticationMessage
- * @package Volante\SkyBukkit\Common\Src\Client
+ * @package Volantus\FlightBase\Src\Client
  */
 class AuthenticationMessage extends OutgoingMessage
 {

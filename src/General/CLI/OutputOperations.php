@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\CLI;
+namespace Volantus\FlightBase\Src\General\CLI;
 
 use Carbon\Carbon;
 use Symfony\Component\Console\Output\OutputInterface;

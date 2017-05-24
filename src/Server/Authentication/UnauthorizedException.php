@@ -1,11 +1,11 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Authentication;
+namespace Volantus\FlightBase\Src\Server\Authentication;
 
 use Guzzle\Common\Exception\RuntimeException;
 
 /**
  * Class UnauthorizedException
- * @package Volante\SkyBukkit\Common\Src\Server\Authentication
+ * @package Volantus\FlightBase\Src\Server\Authentication
  */
 class UnauthorizedException extends RuntimeException
 {

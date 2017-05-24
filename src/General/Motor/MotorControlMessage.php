@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\Motor;
+namespace Volantus\FlightBase\Src\General\Motor;
 
-use Volante\SkyBukkit\Common\Src\Client\OutgoingMessage;
-use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatus;
+use Volantus\FlightBase\Src\Client\OutgoingMessage;
+use Volantus\FlightBase\Src\General\GyroStatus\GyroStatus;
 
 /**
  * Class ManualMotorControlMessage
  *
- * @package Volante\SkyBukkit\Common\Src\General\Motor
+ * @package Volantus\FlightBase\Src\General\Motor
  */
 class MotorControlMessage extends OutgoingMessage
 {

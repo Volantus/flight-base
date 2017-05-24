@@ -1,7 +1,7 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Client;
+namespace Volantus\FlightBase\Src\Client;
 
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 /**
  * Class OutgoingMessage
@@ -20,7 +20,7 @@ abstract class OutgoingMessage
     protected $messageTitle = 'undefined';
 
     /**
-     * @return \Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage
+     * @return \Volantus\FlightBase\Src\General\Network\BaseRawMessage
      */
     public function toRawMessage() : BaseRawMessage
     {

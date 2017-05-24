@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\Network;
+namespace Volantus\FlightBase\Tests\General\Network;
 
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 /**
  * Class RawMessageFactory
  * @package Volante\SkyBukkit\RleayServer\Tests\Network
  */
-class RawMessageFactory extends \Volante\SkyBukkit\Common\Src\General\Network\RawMessageFactory
+class RawMessageFactory extends \Volantus\FlightBase\Src\General\Network\RawMessageFactory
 {
     /**
      * @param string $json

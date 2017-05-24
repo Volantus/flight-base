@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Client;
+namespace Volantus\FlightBase\Src\Client;
 
 use Ratchet\Client\Connector;
 use Ratchet\Client\WebSocket;
 use React\EventLoop\ExtEventLoop;
 use React\EventLoop\Factory;
 use Symfony\Component\Console\Output\OutputInterface;
-use Volante\SkyBukkit\Common\Src\General\CLI\OutputOperations;
+use Volantus\FlightBase\Src\General\CLI\OutputOperations;
 
 class ClientController
 {

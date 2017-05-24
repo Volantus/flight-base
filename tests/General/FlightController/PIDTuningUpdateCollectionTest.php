@@ -1,9 +1,9 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\FlightController;
+namespace Volantus\FlightBase\Tests\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatus;
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningUpdateCollection;
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\FlightController\PIDTuningStatus;
+use Volantus\FlightBase\Src\General\FlightController\PIDTuningUpdateCollection;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 class PIDTuningUpdateCollectionTest extends \PHPUnit_Framework_TestCase
 {

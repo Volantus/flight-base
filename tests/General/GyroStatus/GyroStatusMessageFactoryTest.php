@@ -1,17 +1,17 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\GyroStatus;
+namespace Volantus\FlightBase\Tests\General\GyroStatus;
 
-use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatus;
-use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatusMessageFactory;
-use Volante\SkyBukkit\Common\Src\General\GyroStatus\IncomingGyroStatusMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
-use Volante\SkyBukkit\Common\Tests\Server\General\MessageFactoryTestCase;
+use Volantus\FlightBase\Src\General\GyroStatus\GyroStatus;
+use Volantus\FlightBase\Src\General\GyroStatus\GyroStatusMessageFactory;
+use Volantus\FlightBase\Src\General\GyroStatus\IncomingGyroStatusMessage;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Tests\Server\General\MessageFactoryTestCase;
 
 /**
  * Class GyroStatusMessageFactoryTest
  *
- * @package Volante\SkyBukkit\Common\Tests\General\GyroStatus
+ * @package Volantus\FlightBase\Tests\General\GyroStatus
  */
 class GyroStatusMessageFactoryTest extends MessageFactoryTestCase
 {

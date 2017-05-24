@@ -1,10 +1,10 @@
 <?php
 namespace Volante\SkyBukkit\RleayServer\Tests\Message;
 
-use Volante\SkyBukkit\Common\Src\Server\Network\Client;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\RawMessageFactory;
-use Volante\SkyBukkit\Common\Tests\Server\General\DummyConnection;
+use Volantus\FlightBase\Src\Server\Network\Client;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\Server\Network\RawMessageFactory;
+use Volantus\FlightBase\Tests\Server\General\DummyConnection;
 
 /**
  * Class MessageFactoryTest

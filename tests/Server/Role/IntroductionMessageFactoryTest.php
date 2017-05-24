@@ -1,12 +1,12 @@
 <?php
 namespace Volante\SkyBukkit\RleayServer\Tests\Role;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
-use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
-use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;
-use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessageFactory;
-use Volante\SkyBukkit\Common\Tests\Server\General\MessageFactoryTestCase;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\General\Role\ClientRole;
+use Volantus\FlightBase\Src\Server\Role\IntroductionMessage;
+use Volantus\FlightBase\Src\Server\Role\IntroductionMessageFactory;
+use Volantus\FlightBase\Tests\Server\General\MessageFactoryTestCase;
 
 /**
  * Class IntroductionMessageFactoryTest

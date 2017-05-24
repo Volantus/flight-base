@@ -1,9 +1,9 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Network;
+namespace Volantus\FlightBase\Src\Server\Network;
 
 use Ratchet\ConnectionInterface;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
-use Volante\SkyBukkit\Common\Src\Server\Subscription\Topic;
+use Volantus\FlightBase\Src\Server\Messaging\Sender;
+use Volantus\FlightBase\Src\Server\Subscription\Topic;
 
 
 /**

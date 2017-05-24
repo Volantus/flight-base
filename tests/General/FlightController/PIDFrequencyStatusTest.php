@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\FlightController;
+namespace Volantus\FlightBase\Tests\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatus;
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\FlightController\PIDFrequencyStatus;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 /**
  * Class PIDFrequencyStatusTest
  *
- * @package Volante\SkyBukkit\Common\Tests\General\FlightController
+ * @package Volantus\FlightBase\Tests\General\FlightController
  */
 class PIDFrequencyStatusTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,14 +1,14 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Server;
+namespace Volantus\FlightBase\Tests\Server;
 
 use Symfony\Component\Console\Tests\Fixtures\DummyOutput;
-use Volante\SkyBukkit\Common\Src\Server\Controller;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageServerService;
-use Volante\SkyBukkit\Common\Tests\Server\General\DummyConnection;
+use Volantus\FlightBase\Src\Server\Controller;
+use Volantus\FlightBase\Src\Server\Messaging\MessageServerService;
+use Volantus\FlightBase\Tests\Server\General\DummyConnection;
 
 /**
  * Class ControllerTest
- * @package Volante\SkyBukkit\Common\Tests\Server
+ * @package Volantus\FlightBase\Tests\Server
  */
 class ControllerTest extends \PHPUnit_Framework_TestCase
 {

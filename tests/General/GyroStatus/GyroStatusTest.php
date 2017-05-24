@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\GyroStatus;
+namespace Volantus\FlightBase\Tests\General\GyroStatus;
 
-use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatus;
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\GyroStatus\GyroStatus;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 /**
  * Class GyroStatusTest
  *
- * @package Volante\SkyBukkit\Common\Tests\General\GyroStatus
+ * @package Volantus\FlightBase\Tests\General\GyroStatus
  */
 class GyroStatusTest extends \PHPUnit_Framework_TestCase
 {

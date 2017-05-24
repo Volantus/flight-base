@@ -1,14 +1,14 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server;
+namespace Volantus\FlightBase\Src\Server;
 
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageServerService;
+use Volantus\FlightBase\Src\Server\Messaging\MessageServerService;
 
 /**
  * Class Controller
- * @package Volante\SkyBukkit\Common\Src\Server
+ * @package Volantus\FlightBase\Src\Server
  */
 class Controller implements MessageComponentInterface
 {

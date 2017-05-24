@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\FlightController;
+namespace Volantus\FlightBase\Src\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\Client\OutgoingMessage;
+use Volantus\FlightBase\Src\Client\OutgoingMessage;
 
 /**
  * Class PIDFrequencyStatus
  *
- * @package Volante\SkyBukkit\Common\Src\General
+ * @package Volantus\FlightBase\Src\General
  */
 class PIDFrequencyStatus extends OutgoingMessage
 {

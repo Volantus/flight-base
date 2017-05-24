@@ -1,18 +1,18 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\Motor\FlightControllerTest;
+namespace Volantus\FlightBase\Tests\General\Motor\FlightControllerTest;
 
-use Volante\SkyBukkit\Common\Src\General\Motor\IncomingMotorStatusMessage;
-use Volante\SkyBukkit\Common\Src\General\Motor\Motor;
-use Volante\SkyBukkit\Common\Src\General\Motor\MotorStatus;
-use Volante\SkyBukkit\Common\Src\General\Motor\MotorStatusMessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
-use Volante\SkyBukkit\Common\Tests\Server\General\MessageFactoryTestCase;
+use Volantus\FlightBase\Src\General\Motor\IncomingMotorStatusMessage;
+use Volantus\FlightBase\Src\General\Motor\Motor;
+use Volantus\FlightBase\Src\General\Motor\MotorStatus;
+use Volantus\FlightBase\Src\General\Motor\MotorStatusMessageFactory;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Tests\Server\General\MessageFactoryTestCase;
 
 /**
  * Class MotorStatusMessageFactoryTest
  *
- * @package Volante\SkyBukkit\Common\Tests\General\Motor\FlightControllerTest
+ * @package Volantus\FlightBase\Tests\General\Motor\FlightControllerTest
  */
 class MotorStatusMessageFactoryTest extends MessageFactoryTestCase
 {

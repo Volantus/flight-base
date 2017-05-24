@@ -1,15 +1,15 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\FlightController;
+namespace Volantus\FlightBase\Tests\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDTuningStatusMessage;
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningMessageFactory;
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusCollection;
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatusMessageFactory;
+use Volantus\FlightBase\Src\General\FlightController\IncomingPIDTuningStatusMessage;
+use Volantus\FlightBase\Src\General\FlightController\PIDTuningMessageFactory;
+use Volantus\FlightBase\Src\General\FlightController\PIDTuningStatusCollection;
+use Volantus\FlightBase\Src\General\FlightController\PIDTuningStatusMessageFactory;
 
 /**
  * Class PIDTuningStatusMessageFactoryTest
  *
- * @package Volante\SkyBukkit\Common\Tests\General\FlightController
+ * @package Volantus\FlightBase\Tests\General\FlightController
  */
 class PIDTuningStatusMessageFactoryTest extends PIDTuningMessageFactoryTest
 {

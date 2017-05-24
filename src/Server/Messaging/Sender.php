@@ -1,9 +1,9 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
+namespace Volantus\FlightBase\Src\Server\Messaging;
 
 /**
  * Interface Sender
- * @package Volante\SkyBukkit\Common\Src\Server\Messaging
+ * @package Volantus\FlightBase\Src\Server\Messaging
  */
 interface Sender
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Client;
+namespace Volantus\FlightBase\Src\Client;
 
 /**
  * Class IntroductionMessage

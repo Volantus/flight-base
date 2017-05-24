@@ -1,11 +1,11 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\Motor;
+namespace Volantus\FlightBase\Src\General\Motor;
 
-use Volante\SkyBukkit\Common\Src\Client\OutgoingMessage;
+use Volantus\FlightBase\Src\Client\OutgoingMessage;
 
 /**
  * Class MotorStatus
- * @package Volante\SkyBukkit\Common\Src\General\Motor
+ * @package Volantus\FlightBase\Src\General\Motor
  */
 class MotorStatus extends OutgoingMessage
 {

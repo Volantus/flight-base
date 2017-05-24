@@ -1,8 +1,8 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\GeoPosition;
+namespace Volantus\FlightBase\Tests\General\GeoPosition;
 
-use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\GeoPosition\GeoPosition;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 /**
  * Class GeoPositionTest

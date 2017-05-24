@@ -1,9 +1,9 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Client;
+namespace Volantus\FlightBase\Tests\Client;
 
 /**
  * Class OutgoingMessageTestCase
- * @package Volante\SkyBukkit\Common\Tests\Client
+ * @package Volantus\FlightBase\Tests\Client
  */
 abstract class OutgoingMessageTestCase
 {

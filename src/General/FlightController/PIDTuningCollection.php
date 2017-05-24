@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\FlightController;
+namespace Volantus\FlightBase\Src\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\Client\OutgoingMessage;
+use Volantus\FlightBase\Src\Client\OutgoingMessage;
 
 /**
  * Class PIDTuningCollection
  *
- * @package Volante\SkyBukkit\Common\Src\General\FlightController
+ * @package Volantus\FlightBase\Src\General\FlightController
  */
 abstract class PIDTuningCollection extends OutgoingMessage
 {

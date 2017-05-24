@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\FlightController;
+namespace Volantus\FlightBase\Src\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Messaging\Sender;
 
 /**
  * Class IncomingPIDTuningMessage
  *
- * @package Volante\SkyBukkit\Common\Src\General\FlightController
+ * @package Volantus\FlightBase\Src\General\FlightController
  */
 abstract class IncomingPIDTuningMessage extends IncomingMessage
 {

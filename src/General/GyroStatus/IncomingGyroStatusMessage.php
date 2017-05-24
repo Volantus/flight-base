@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\GyroStatus;
+namespace Volantus\FlightBase\Src\General\GyroStatus;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Messaging\Sender;
 
 /**
  * Class IncomingGeoPositionMessage
- * @package Volante\SkyBukkit\Common\Src\General\GeoPosition
+ * @package Volantus\FlightBase\Src\General\GeoPosition
  */
 class IncomingGyroStatusMessage extends IncomingMessage
 {

@@ -1,9 +1,9 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
+namespace Volantus\FlightBase\Src\Server\Messaging;
 
 /**
  * Class Message
- * @package Volante\SkyBukkit\Common\Src\Server\FlightStatus\Network
+ * @package Volantus\FlightBase\Src\Server\FlightStatus\Network
  */
 abstract class IncomingMessage
 {

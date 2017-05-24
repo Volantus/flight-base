@@ -1,11 +1,11 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\Role;
+namespace Volantus\FlightBase\Tests\General\Role;
 
-use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
+use Volantus\FlightBase\Src\General\Role\ClientRole;
 
 /**
  * Class ClientRoleTest
- * @package Volante\SkyBukkit\Common\Tests\Role
+ * @package Volantus\FlightBase\Tests\Role
  */
 class ClientRoleTest extends \PHPUnit_Framework_TestCase
 {

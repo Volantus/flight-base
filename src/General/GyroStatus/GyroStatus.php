@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\GyroStatus;
+namespace Volantus\FlightBase\Src\General\GyroStatus;
 
-use Volante\SkyBukkit\Common\Src\Client\OutgoingMessage;
+use Volantus\FlightBase\Src\Client\OutgoingMessage;
 
 /**
  * Class GyroStatus
  *
- * @package Volante\SkyBukkit\Common\Src\GyroStatus
+ * @package Volantus\FlightBase\Src\GyroStatus
  */
 class GyroStatus extends OutgoingMessage implements \JsonSerializable
 {

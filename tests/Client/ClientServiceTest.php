@@ -1,17 +1,17 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Client;
+namespace Volantus\FlightBase\Tests\Client;
 
 use Ratchet\Client\WebSocket;
 use Symfony\Component\Console\Tests\Fixtures\DummyOutput;
-use Volante\SkyBukkit\Common\Src\Client\ClientService;
-use Volante\SkyBukkit\Common\Src\Client\Server;
-use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
-use Volante\SkyBukkit\Common\Src\General\GeoPosition\IncomingGeoPositionMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageService;
+use Volantus\FlightBase\Src\Client\ClientService;
+use Volantus\FlightBase\Src\Client\Server;
+use Volantus\FlightBase\Src\General\GeoPosition\GeoPosition;
+use Volantus\FlightBase\Src\General\GeoPosition\IncomingGeoPositionMessage;
+use Volantus\FlightBase\Src\Server\Messaging\MessageService;
 
 /**
  * Class ClientServiceTest
- * @package Volante\SkyBukkit\Common\Tests\Client
+ * @package Volantus\FlightBase\Tests\Client
  */
 class ClientServiceTest extends \PHPUnit_Framework_TestCase
 {

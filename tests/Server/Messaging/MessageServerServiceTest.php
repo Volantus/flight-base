@@ -1,15 +1,15 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Server\Messaging;
+namespace Volantus\FlightBase\Tests\Server\Messaging;
 
 use Symfony\Component\Console\Tests\Fixtures\DummyOutput;
-use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageServerService;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageService;
-use Volante\SkyBukkit\Common\Src\Server\Network\Client;
-use Volante\SkyBukkit\Common\Src\Server\Network\ClientFactory;
-use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
-use Volante\SkyBukkit\Common\Src\Server\Role\IntroductionMessage;
-use Volante\SkyBukkit\Common\Tests\Server\General\DummyConnection;
+use Volantus\FlightBase\Src\Server\Authentication\AuthenticationMessage;
+use Volantus\FlightBase\Src\Server\Messaging\MessageServerService;
+use Volantus\FlightBase\Src\Server\Messaging\MessageService;
+use Volantus\FlightBase\Src\Server\Network\Client;
+use Volantus\FlightBase\Src\Server\Network\ClientFactory;
+use Volantus\FlightBase\Src\General\Role\ClientRole;
+use Volantus\FlightBase\Src\Server\Role\IntroductionMessage;
+use Volantus\FlightBase\Tests\Server\General\DummyConnection;
 
 /**
  * Class MessageServerServiceTest
