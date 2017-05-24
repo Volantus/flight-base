@@ -1,17 +1,17 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\FlightController;
+namespace Volantus\FlightBase\Tests\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\General\FlightController\IncomingPIDFrequencyStatus;
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatus;
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDFrequencyStatusMessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
-use Volante\SkyBukkit\Common\Tests\Server\General\MessageFactoryTestCase;
+use Volantus\FlightBase\Src\General\FlightController\IncomingPIDFrequencyStatus;
+use Volantus\FlightBase\Src\General\FlightController\PIDFrequencyStatus;
+use Volantus\FlightBase\Src\General\FlightController\PIDFrequencyStatusMessageFactory;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Tests\Server\General\MessageFactoryTestCase;
 
 /**
  * Class PIDFrequencyStatusMessageFactoryTest
  *
- * @package Volante\SkyBukkit\Common\Tests\General\FlightController
+ * @package Volantus\FlightBase\Tests\General\FlightController
  */
 class PIDFrequencyStatusMessageFactoryTest extends MessageFactoryTestCase
 {

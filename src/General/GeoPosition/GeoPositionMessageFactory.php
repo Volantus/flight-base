@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\GeoPosition;
+namespace Volantus\FlightBase\Src\General\GeoPosition;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Messaging\MessageFactory;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class GeoPositionFactory
- * @package Volante\SkyBukkit\Common\Src\General\GeoPosition
+ * @package Volantus\FlightBase\Src\General\GeoPosition
  */
 class GeoPositionMessageFactory extends MessageFactory
 {

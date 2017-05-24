@@ -1,11 +1,11 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Network;
+namespace Volantus\FlightBase\Src\Server\Network;
 
 use Ratchet\ConnectionInterface;
 
 /**
  * Class ClientFactory
- * @package Volante\SkyBukkit\Common\Src\Server\Network
+ * @package Volantus\FlightBase\Src\Server\Network
  */
 class ClientFactory
 {

@@ -1,14 +1,14 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\Motor\FlightControllerTest;
+namespace Volantus\FlightBase\Tests\General\Motor\FlightControllerTest;
 
-use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatus;
-use Volante\SkyBukkit\Common\Src\General\Motor\MotorControlMessage;
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\GyroStatus\GyroStatus;
+use Volantus\FlightBase\Src\General\Motor\MotorControlMessage;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 /**
  * Class MotorControlMessageTest
  *
- * @package Volante\SkyBukkit\Common\Tests\General\Motor\FlightControllerTest
+ * @package Volantus\FlightBase\Tests\General\Motor\FlightControllerTest
  */
 class MotorControlMessageTest extends \PHPUnit_Framework_TestCase
 {

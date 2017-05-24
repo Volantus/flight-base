@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\Motor;
+namespace Volantus\FlightBase\Src\General\Motor;
 
 /**
  * Class Motor

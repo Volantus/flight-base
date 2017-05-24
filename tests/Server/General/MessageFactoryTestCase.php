@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Server\General;
+namespace Volantus\FlightBase\Tests\Server\General;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\Client;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\Client;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class MessageFactoryTestCase
- * @package Volante\SkyBukkit\Common\Tests\Server\General
+ * @package Volantus\FlightBase\Tests\Server\General
  */
 abstract class MessageFactoryTestCase extends \PHPUnit_Framework_TestCase
 {

@@ -1,16 +1,16 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\GeoPosition;
+namespace Volantus\FlightBase\Tests\General\GeoPosition;
 
-use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPosition;
-use Volante\SkyBukkit\Common\Src\General\GeoPosition\GeoPositionMessageFactory;
-use Volante\SkyBukkit\Common\Src\General\GeoPosition\IncomingGeoPositionMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
-use Volante\SkyBukkit\Common\Tests\Server\General\MessageFactoryTestCase;
+use Volantus\FlightBase\Src\General\GeoPosition\GeoPosition;
+use Volantus\FlightBase\Src\General\GeoPosition\GeoPositionMessageFactory;
+use Volantus\FlightBase\Src\General\GeoPosition\IncomingGeoPositionMessage;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Tests\Server\General\MessageFactoryTestCase;
 
 /**
  * Class GeoPositionMessageFactoryTest
- * @package Volante\SkyBukkit\Common\Tests\General\GeoPosition
+ * @package Volantus\FlightBase\Tests\General\GeoPosition
  */
 class GeoPositionMessageFactoryTest extends MessageFactoryTestCase
 {

@@ -1,13 +1,13 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Client;
+namespace Volantus\FlightBase\Tests\Client;
 
-use Volante\SkyBukkit\Common\Src\Client\IntroductionMessage;
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
-use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
+use Volantus\FlightBase\Src\Client\IntroductionMessage;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\Role\ClientRole;
 
 /**
  * Class IntroductionMessageTest
- * @package Volante\SkyBukkit\Common\Tests\Client\Role
+ * @package Volantus\FlightBase\Tests\Client\Role
  */
 class IntroductionMessageTest extends \PHPUnit_Framework_TestCase
 {

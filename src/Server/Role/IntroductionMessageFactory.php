@@ -1,15 +1,15 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Role;
+namespace Volantus\FlightBase\Src\Server\Role;
 
 use Assert\Assertion;
-use Volante\SkyBukkit\Common\Src\General\Role\ClientRole;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\General\Role\ClientRole;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Messaging\MessageFactory;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class IntroductionMessageFactory
- * @package Volante\SkyBukkit\Common\Src\Server\Role
+ * @package Volantus\FlightBase\Src\Server\Role
  */
 class IntroductionMessageFactory extends MessageFactory
 {

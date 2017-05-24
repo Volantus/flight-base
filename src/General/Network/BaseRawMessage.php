@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\Network;
+namespace Volantus\FlightBase\Src\General\Network;
 
 /**
  * Class Message

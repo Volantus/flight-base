@@ -1,10 +1,10 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\FlightController;
+namespace Volantus\FlightBase\Src\General\FlightController;
 
 /**
  * Class IncomingPIDTuningStatusMessage
  *
- * @package Volante\SkyBukkit\Common\Src\General\FlightController
+ * @package Volantus\FlightBase\Src\General\FlightController
  */
 class IncomingPIDTuningStatusMessage extends IncomingPIDTuningMessage
 {

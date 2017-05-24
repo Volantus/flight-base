@@ -1,8 +1,8 @@
 <?php
 namespace Volante\SkyBukkit\RleayServer\Tests\Message;
 
-use Volante\SkyBukkit\Common\Src\Server\Network\ClientFactory;
-use Volante\SkyBukkit\Common\Tests\Server\General\DummyConnection;
+use Volantus\FlightBase\Src\Server\Network\ClientFactory;
+use Volantus\FlightBase\Tests\Server\General\DummyConnection;
 
 /**
  * Class ClientFactoryTest

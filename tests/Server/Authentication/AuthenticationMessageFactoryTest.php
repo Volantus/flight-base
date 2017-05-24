@@ -1,15 +1,15 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Server\Authentication;
+namespace Volantus\FlightBase\Tests\Server\Authentication;
 
-use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessage;
-use Volante\SkyBukkit\Common\Src\Server\Authentication\AuthenticationMessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
-use Volante\SkyBukkit\Common\Tests\Server\General\MessageFactoryTestCase;
+use Volantus\FlightBase\Src\Server\Authentication\AuthenticationMessage;
+use Volantus\FlightBase\Src\Server\Authentication\AuthenticationMessageFactory;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Tests\Server\General\MessageFactoryTestCase;
 
 /**
  * Class AuthenticationMessageFactoryTest
- * @package Volante\SkyBukkit\Common\Tests\Server\Authentication
+ * @package Volantus\FlightBase\Tests\Server\Authentication
  */
 class AuthenticationMessageFactoryTest extends MessageFactoryTestCase
 {

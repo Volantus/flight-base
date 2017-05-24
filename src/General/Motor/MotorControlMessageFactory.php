@@ -1,15 +1,15 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\Motor;
+namespace Volantus\FlightBase\Src\General\Motor;
 
-use Volante\SkyBukkit\Common\Src\General\GyroStatus\GyroStatus;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\General\GyroStatus\GyroStatus;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Messaging\MessageFactory;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class MotorControlMessageFactory
  *
- * @package Volante\SkyBukkit\Common\Src\General\Motor
+ * @package Volantus\FlightBase\Src\General\Motor
  */
 class MotorControlMessageFactory extends MessageFactory
 {

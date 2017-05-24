@@ -1,14 +1,14 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\GyroStatus;
+namespace Volantus\FlightBase\Src\General\GyroStatus;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\MessageFactory;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Messaging\MessageFactory;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class GyroStatusMessageFactory
  *
- * @package Volante\SkyBukkit\Common\Src\General\GyroStatus
+ * @package Volantus\FlightBase\Src\General\GyroStatus
  */
 class GyroStatusMessageFactory extends MessageFactory
 {

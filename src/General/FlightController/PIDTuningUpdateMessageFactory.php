@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\FlightController;
+namespace Volantus\FlightBase\Src\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
+use Volantus\FlightBase\Src\Server\Messaging\Sender;
 
 /**
  * Class PIDTuningUpdateMessageFactory
  *
- * @package Volante\SkyBukkit\Common\Src\General\FlightController
+ * @package Volantus\FlightBase\Src\General\FlightController
  */
 class PIDTuningUpdateMessageFactory extends PIDTuningMessageFactory
 {

@@ -1,11 +1,11 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Server\General;
+namespace Volantus\FlightBase\Tests\Server\General;
 
 use Ratchet\ConnectionInterface;
 
 /**
  * Class DummyConnection
- * @package Volante\SkyBukkit\Common\Tests\Server\General
+ * @package Volantus\FlightBase\Tests\Server\General
  */
 class DummyConnection implements ConnectionInterface
 {

@@ -1,8 +1,8 @@
 {
-  "name": "volante/common",
-  "description": "Contains all shared volante libraries",
+  "name": "volantus/flight-base",
+  "description": "Base library for all Volantus flight stack modules",
   "type": "library",
-  "license": "proprietary",
+  "license": "GNUv3",
   "authors": [
     {
       "name": "Marius Meißner",
@@ -19,9 +19,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Volante\\SkyBukkit\\Common\\": "",
-      "Volante\\SkyBukkit\\Common\\Src\\": "src",
-      "Volante\\SkyBukkit\\Common\\Tests\\": "tests"
+      "Volantus\\FlightBase\\Src\\": "src",
+      "Volantus\\FlightBase\\Tests\\": "tests"
     }
   }
 }

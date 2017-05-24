@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\FlightController;
+namespace Volantus\FlightBase\Tests\General\FlightController;
 
-use Volante\SkyBukkit\Common\Src\General\FlightController\PIDTuningStatus;
+use Volantus\FlightBase\Src\General\FlightController\PIDTuningStatus;
 
 /**
  * Class PIDTuningStatusTest
  *
- * @package Volante\SkyBukkit\Common\Tests\General\FlightController
+ * @package Volantus\FlightBase\Tests\General\FlightController
  */
 class PIDTuningStatusTest extends \PHPUnit_Framework_TestCase
 {

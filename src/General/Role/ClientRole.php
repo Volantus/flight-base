@@ -1,5 +1,5 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\General\Role;
+namespace Volantus\FlightBase\Src\General\Role;
 
 /**
  * Class ClientRole

@@ -1,7 +1,7 @@
 <?php
-namespace  Volante\SkyBukkit\Common\Tests\General\Motor\FlightControllerTest;
+namespace  Volantus\FlightBase\Tests\General\Motor\FlightControllerTest;
 
-use Volante\SkyBukkit\Common\Src\General\Motor\Motor;
+use Volantus\FlightBase\Src\General\Motor\Motor;
 
 /**
  * Class MotorTest

@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\Client;
+namespace Volantus\FlightBase\Tests\Client;
 
-use Volante\SkyBukkit\Common\Src\Client\AuthenticationMessage;
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\Client\AuthenticationMessage;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 /**
  * Class AuthenticationMessageTest
- * @package Volante\SkyBukkit\Common\Tests\Client
+ * @package Volantus\FlightBase\Tests\Client
  */
 class AuthenticationMessageTest extends \PHPUnit_Framework_TestCase
 {

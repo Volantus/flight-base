@@ -1,7 +1,7 @@
 <?php
-namespace Volante\SkyBukkit\Common\Tests\General\Network;
+namespace Volantus\FlightBase\Tests\General\Network;
 
-use Volante\SkyBukkit\Common\Src\General\Network\BaseRawMessage;
+use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 
 /**
  * Class MessageTest

@@ -1,9 +1,9 @@
 <?php
 
-namespace Volante\SkyBukkit\Common\Src\Client;
+namespace Volantus\FlightBase\Src\Client;
 
 use Ratchet\Client\WebSocket;
-use Volante\SkyBukkit\Common\Src\Server\Messaging\Sender;
+use Volantus\FlightBase\Src\Server\Messaging\Sender;
 
 /**
  * Class Server

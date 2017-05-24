@@ -1,12 +1,12 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Messaging;
+namespace Volantus\FlightBase\Src\Server\Messaging;
 
 use Assert\Assertion;
-use Volante\SkyBukkit\Common\Src\Server\Network\NetworkRawMessage;
+use Volantus\FlightBase\Src\Server\Network\NetworkRawMessage;
 
 /**
  * Class MessageFactory
- * @package Volante\SkyBukkit\Common\Src\Server\Messaging
+ * @package Volantus\FlightBase\Src\Server\Messaging
  */
 abstract class MessageFactory
 {

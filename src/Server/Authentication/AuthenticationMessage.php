@@ -1,8 +1,8 @@
 <?php
-namespace Volante\SkyBukkit\Common\Src\Server\Authentication;
+namespace Volantus\FlightBase\Src\Server\Authentication;
 
-use Volante\SkyBukkit\Common\Src\Server\Messaging\IncomingMessage;
-use Volante\SkyBukkit\Common\Src\Server\Network\Client;
+use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
+use Volantus\FlightBase\Src\Server\Network\Client;
 
 /**
  * Created by PhpStorm.
