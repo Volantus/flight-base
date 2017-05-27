@@ -7,16 +7,16 @@ namespace Volantus\FlightBase\Src\General\Role;
  */
 abstract class ClientRole
 {
-    const OPERATOR          = 1;
-    const FLIGHT_CONTROLLER = 2;
-    const STATUS_BROKER     = 3;
+    const OPERATOR               = 1;
+    const MANUAL_CONTROL_SERVICE = 2;
+    const GYRO_STATUS_SERVICE    = 3;
 
     /**
      * @return array
      */
     public static function getSupportedRoles(): array
     {
-        return [self::OPERATOR, self::FLIGHT_CONTROLLER, self::STATUS_BROKER];
+        return [self::OPERATOR, self::MANUAL_CONTROL_SERVICE, self::GYRO_STATUS_SERVICE];
     }
 
     /**
@@ -29,11 +29,11 @@ abstract class ClientRole
             case self::OPERATOR:
                 return 'OPERATOR';
                 break;
-            case self::FLIGHT_CONTROLLER:
-                return 'FLIGHT_CONTROLLER';
+            case self::MANUAL_CONTROL_SERVICE:
+                return 'MANUAL_CONTROL_SERVICE';
                 break;
-            case self::STATUS_BROKER:
-                return 'STATUS_BROKER';
+            case self::GYRO_STATUS_SERVICE:
+                return 'GYRO_STATUS_SERVICE';
                 break;
         }
 
