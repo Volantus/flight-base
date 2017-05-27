@@ -38,9 +38,9 @@ abstract class MessageFactoryTestCase extends \PHPUnit_Framework_TestCase
     abstract protected function getCorrectMessageData() : array;
 
     /**
-     * @param string $key
+     * @param string|int $key
      */
-    protected function validateMissingKey(string $key)
+    protected function validateMissingKey($key)
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid ' . $this->getMessageType() . ' message: ' . $key . ' key is missing');

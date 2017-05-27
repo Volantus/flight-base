@@ -26,10 +26,10 @@ abstract class MessageFactory
     }
 
     /**
-     * @param array $data
-     * @param string $key
+     * @param array      $data
+     * @param string|int $key
      */
-    protected function validateString(array $data, string $key)
+    protected function validateString(array $data, $key)
     {
         if (!isset($data[$key])) {
             throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
@@ -72,10 +72,10 @@ abstract class MessageFactory
 
 
     /**
-     * @param array $data
-     * @param string $key
+     * @param array      $data
+     * @param string|int $key
      */
-    protected function validateArray(array $data, string $key)
+    protected function validateArray(array $data, $key)
     {
         if (!isset($data[$key])) {
             throw new \InvalidArgumentException('Invalid ' . $this->type . ' message: ' . $key . ' key is missing');
