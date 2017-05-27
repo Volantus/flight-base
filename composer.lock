@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d4b2b1a985efc43463e2e89023275c9a",
-    "content-hash": "8d083dd2f2cf406641840820cd21690f",
+    "hash": "a063281841fa7a7eed91311604044b6b",
+    "content-hash": "ad58884dfa1fd408b12e2d7b45afbe9f",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -2644,6 +2644,44 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2017-03-07 16:47:02"
+        },
+        {
+            "name": "volantus/msp-protocol",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Volantus/msp-protocol.git",
+                "reference": "074a5442050e41ba08ea456ba16caf5a26af3759"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Volantus/msp-protocol/zipball/074a5442050e41ba08ea456ba16caf5a26af3759",
+                "reference": "074a5442050e41ba08ea456ba16caf5a26af3759",
+                "shasum": ""
+            },
+            "require": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Volantus\\MSPProtocol\\": "",
+                    "Volantus\\MSPProtocol\\Src\\": "src",
+                    "Volantus\\MSPProtocol\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNUv3"
+            ],
+            "authors": [
+                {
+                    "name": "Marius Meißner",
+                    "email": "info@marius-meissner.net"
+                }
+            ],
+            "description": "PHP implementation of the SMP protocol + serial communication adapter",
+            "time": "2017-05-24 12:54:00"
         },
         {
             "name": "webmozart/assert",
