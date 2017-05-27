@@ -11,6 +11,9 @@ use Volantus\FlightBase\Src\General\FlightController\PIDTuningStatusCollection;
 use Volantus\FlightBase\Src\General\FlightController\PIDTuningStatusMessageFactory;
 use Volantus\FlightBase\Src\General\FlightController\PIDTuningUpdateCollection;
 use Volantus\FlightBase\Src\General\FlightController\PIDTuningUpdateMessageFactory;
+use Volantus\FlightBase\Src\General\Generic\GenericInternalMessage;
+use Volantus\FlightBase\Src\General\Generic\GenericInternalMessageFactory;
+use Volantus\FlightBase\Src\General\Generic\IncomingGenericInternalMessage;
 use Volantus\FlightBase\Src\General\GeoPosition\GeoPosition;
 use Volantus\FlightBase\Src\General\GeoPosition\GeoPositionMessageFactory;
 use Volantus\FlightBase\Src\General\GeoPosition\IncomingGeoPositionMessage;
@@ -96,6 +99,11 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
     protected $pidTuningUpdateMessageFactory;
 
     /**
+     * @var GenericInternalMessageFactory|\PHPUnit_Framework_MockObject_MockObject
+     */
+    protected $genericInternalMessageFactory;
+
+    /**
      * @var Client
      */
     protected $sender;
@@ -113,6 +121,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $this->motorControlMessageFactory = $this->getMockBuilder(MotorControlMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->pidTuningStatusMessageFactory = $this->getMockBuilder(PIDTuningStatusMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
         $this->pidTuningUpdateMessageFactory = $this->getMockBuilder(PIDTuningUpdateMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
+        $this->genericInternalMessageFactory = $this->getMockBuilder(GenericInternalMessageFactory::class)->setMethods(['create'])->disableOriginalConstructor()->getMock();
 
         $this->service = $this->createService();
     }
@@ -122,7 +131,7 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
      */
     protected function createService() : MessageService
     {
-        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory, $this->motorStatusMessageFactory, $this->PIDFrequencyStatusMessageFactory, $this->motorControlMessageFactory, $this->pidTuningStatusMessageFactory, $this->pidTuningUpdateMessageFactory);
+        return new MessageService($this->rawMessageFactory, $this->introductionMessageFactory, $this->authenticationMessageFactory, $this->geoPositionMessageFactory, $this->gyroStatusMessageFactory, $this->motorStatusMessageFactory, $this->PIDFrequencyStatusMessageFactory, $this->motorControlMessageFactory, $this->pidTuningStatusMessageFactory, $this->pidTuningUpdateMessageFactory, $this->genericInternalMessageFactory);
     }
 
     public function test_handle_rawMessageServiceCalled()
@@ -301,6 +310,26 @@ class MessageServiceTest extends \PHPUnit_Framework_TestCase
         $result = $this->service->handle($this->sender, 'correct');
 
         self::assertInstanceOf(IncomingPIDTuningUpdateMessage::class, $result);
+        self::assertSame($expected, $result);
+    }
+
+    public function test_handle_genericInternalMessage()
+    {
+        $payload = new \stdClass();
+        $payload->firstProperty = 'correctValue';
+
+        $rawMessage = new NetworkRawMessage($this->sender, GenericInternalMessage::TYPE, 'test', [serialize($payload)]);
+        $expected = new IncomingGenericInternalMessage($this->sender, $payload);
+
+        $this->rawMessageFactory->expects(self::once())
+            ->method('create')
+            ->with($this->sender, 'correct')
+            ->willReturn($rawMessage);
+        $this->genericInternalMessageFactory->expects(self::once())->method('create')->willReturn($expected);
+
+        $result = $this->service->handle($this->sender, 'correct');
+
+        self::assertInstanceOf(IncomingGenericInternalMessage::class, $result);
         self::assertSame($expected, $result);
     }
 }
