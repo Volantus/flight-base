@@ -12,10 +12,10 @@ use Volantus\FlightBase\Src\Server\Messaging\Sender;
  */
 class Server implements Sender
 {
-    const ROLE_LOCAL_RELAY_SERVER   = 1;
-    const ROLE_REMOTE_RELAY_SERVER  = 2;
-    const ROLE_GEO_POSITION_SERVICE = 3;
-    const ROLE_GYRO_STATUS_SERVICE  = 4;
+    const ROLE_RELAY_SERVER_A  = 1;
+    const ROLE_RELAY_SERVER_B  = 2;
+    const ROLE_MSP_BROKER_A    = 3;
+    const ROLE_MSP_BROKER_B    = 4;
 
     /**
      * @var WebSocket

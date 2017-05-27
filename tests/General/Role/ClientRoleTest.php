@@ -11,13 +11,13 @@ class ClientRoleTest extends \PHPUnit_Framework_TestCase
 {
     public function test_getSupportedRoles_correct()
     {
-        self::assertEquals([ClientRole::OPERATOR, ClientRole::FLIGHT_CONTROLLER, ClientRole::STATUS_BROKER], ClientRole::getSupportedRoles());
+        self::assertEquals([ClientRole::OPERATOR, ClientRole::MANUAL_CONTROL_SERVICE, ClientRole::GYRO_STATUS_SERVICE], ClientRole::getSupportedRoles());
     }
 
     public function test_getTitle_correct()
     {
         self::assertEquals('OPERATOR', ClientRole::getTitle(ClientRole::OPERATOR));
-        self::assertEquals('FLIGHT_CONTROLLER', ClientRole::getTitle(ClientRole::FLIGHT_CONTROLLER));
-        self::assertEquals('STATUS_BROKER', ClientRole::getTitle(ClientRole::STATUS_BROKER));
+        self::assertEquals('MANUAL_CONTROL_SERVICE', ClientRole::getTitle(ClientRole::MANUAL_CONTROL_SERVICE));
+        self::assertEquals('GYRO_STATUS_SERVICE', ClientRole::getTitle(ClientRole::GYRO_STATUS_SERVICE));
     }
 }
