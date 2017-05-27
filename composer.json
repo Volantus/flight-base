@@ -15,7 +15,8 @@
     "phpunit/phpunit": "^5.7",
     "symfony/console": "^3.2",
     "cboden/ratchet": "^0.3.6",
-    "ratchet/pawl": "^0.2.3"
+    "ratchet/pawl": "^0.2.3",
+    "volantus/msp-protocol": "^1.0"
   },
   "autoload": {
     "psr-4": {
