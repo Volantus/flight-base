@@ -23,24 +23,24 @@ class GenericInternalMessage extends OutgoingMessage
     protected $messageTitle = 'Generic internal message';
 
     /**
-     * @var object
+     * @var mixed
      */
     private $payload;
 
     /**
      * GenericInternalMessage constructor.
      *
-     * @param object $payload
+     * @param mixed $payload
      */
-    public function __construct(object $payload)
+    public function __construct($payload)
     {
         $this->payload = $payload;
     }
 
     /**
-     * @return object
+     * @return mixed
      */
-    public function getPayload(): object
+    public function getPayload()
     {
         return $this->payload;
     }
