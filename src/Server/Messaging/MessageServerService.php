@@ -4,6 +4,7 @@ namespace Volantus\FlightBase\Src\Server\Messaging;
 use Ratchet\ConnectionInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Volantus\FlightBase\Src\General\CLI\OutputOperations;
+use Volantus\FlightBase\Src\General\Generic\IncomingGenericInternalMessage;
 use Volantus\FlightBase\Src\General\Network\BaseRawMessage;
 use Volantus\FlightBase\Src\General\Role\ClientRole;
 use Volantus\FlightBase\Src\Server\Authentication\AuthenticationMessage;
@@ -90,6 +91,10 @@ class MessageServerService
     protected function handleMessage(IncomingMessage $message)
     {
         switch (get_class($message)) {
+            case IncomingGenericInternalMessage::class:
+                /** @var IncomingGenericInternalMessage $message */
+                $this->handleGenericMessage($message);
+                break;
             case AuthenticationMessage::class:
                 /** @var AuthenticationMessage $message */
                 $this->handleAuthenticationMessage($message);
@@ -99,6 +104,13 @@ class MessageServerService
                 $this->handleIntroductionMessage($message);
                 break;
         }
+    }
+
+    /**
+     * @param IncomingGenericInternalMessage $message
+     */
+    protected function handleGenericMessage(IncomingGenericInternalMessage $message)
+    {
     }
 
     /**
