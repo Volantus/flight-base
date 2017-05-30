@@ -2,10 +2,9 @@
 namespace Volantus\FlightBase\Src\Client;
 
 use Ratchet\Client\WebSocket;
-use React\EventLoop\ExtEventLoop;
+use React\EventLoop\LoopInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Volantus\FlightBase\Src\General\CLI\OutputOperations;
-use Volantus\FlightBase\Src\General\Role\ClientRole;
 use Volantus\FlightBase\Src\Server\Messaging\IncomingMessage;
 use Volantus\FlightBase\Src\Server\Messaging\MessageService;
 
@@ -33,7 +32,7 @@ class ClientService
     protected $messageService;
 
     /**
-     * @var ExtEventLoop
+     * @var LoopInterface
      */
     protected $loop;
 
@@ -136,9 +135,9 @@ class ClientService
     }
 
     /**
-     * @param ExtEventLoop $loop
+     * @param LoopInterface $loop
      */
-    public function setLoop(ExtEventLoop $loop)
+    public function setLoop(LoopInterface $loop)
     {
         $this->loop = $loop;
     }
