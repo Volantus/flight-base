@@ -3,8 +3,8 @@ namespace Volantus\FlightBase\Src\Client;
 
 use Ratchet\Client\Connector;
 use Ratchet\Client\WebSocket;
-use React\EventLoop\ExtEventLoop;
 use React\EventLoop\Factory;
+use React\EventLoop\LoopInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Volantus\FlightBase\Src\General\CLI\OutputOperations;
 
@@ -13,7 +13,7 @@ class ClientController
     use OutputOperations;
 
     /**
-     * @var ExtEventLoop
+     * @var LoopInterface
      */
     protected $loop;
 
