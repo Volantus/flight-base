@@ -37,6 +37,7 @@ class ClientController
         $this->output = $output;
         $this->loop = Factory::create();
         $this->service = $service;
+        $this->service->setLoop($this->loop);
     }
 
     public function run()
