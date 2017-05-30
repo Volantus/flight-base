@@ -2,6 +2,7 @@
 namespace Volantus\FlightBase\Src\Client;
 
 use Ratchet\Client\WebSocket;
+use React\EventLoop\ExtEventLoop;
 use Symfony\Component\Console\Output\OutputInterface;
 use Volantus\FlightBase\Src\General\CLI\OutputOperations;
 use Volantus\FlightBase\Src\General\Role\ClientRole;
@@ -30,6 +31,11 @@ class ClientService
      * @var MessageService
      */
     protected $messageService;
+
+    /**
+     * @var ExtEventLoop
+     */
+    protected $loop;
 
     /**
      * ClientService constructor.
@@ -127,5 +133,13 @@ class ClientService
 
         $introduction = (new IntroductionMessage($this->clientRole))->toRawMessage();
         $server->getConnection()->send(json_encode($introduction));
+    }
+
+    /**
+     * @param ExtEventLoop $loop
+     */
+    public function setLoop(ExtEventLoop $loop)
+    {
+        $this->loop = $loop;
     }
 }
