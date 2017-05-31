@@ -18,27 +18,27 @@ abstract class MspRepositoryTest extends \PHPUnit_Framework_TestCase
     /**
      * @var WebSocket|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $connectionA;
+    protected $connectionA;
 
     /**
      * @var Server
      */
-    private $serverA;
+    protected $serverA;
 
     /**
      * @var WebSocket|\PHPUnit_Framework_MockObject_MockObject
      */
-    private $connectionB;
+    protected $connectionB;
 
     /**
      * @var Server
      */
-    private $serverB;
+    protected $serverB;
 
     /**
      * @var MspRepository
      */
-    private $repository;
+    protected $repository;
 
     protected function setUp()
     {

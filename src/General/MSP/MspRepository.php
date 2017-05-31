@@ -18,12 +18,12 @@ abstract class MspRepository
      *
      * @var Server[]
      */
-    private $freeConnections = [];
+    protected $freeConnections = [];
 
     /**
      * @var array
      */
-    private $currentEntities = [];
+    protected $currentEntities = [];
 
     /**
      * @var int
