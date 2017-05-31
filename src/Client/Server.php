@@ -96,4 +96,22 @@ class Server implements Sender
     {
         $this->connection->close();
     }
+
+    /**
+     * @return bool
+     */
+    public function isRelayServer(): bool
+    {
+        return $this->role == self::ROLE_RELAY_SERVER_A
+            || $this->role == self::ROLE_RELAY_SERVER_B;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMspServer(): bool
+    {
+        return $this->role == self::ROLE_MSP_BROKER_A
+            || $this->role == self::ROLE_MSP_BROKER_B;
+    }
 }
