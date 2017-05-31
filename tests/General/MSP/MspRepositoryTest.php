@@ -1,5 +1,5 @@
 <?php
-namespace Volantus\FlightBase\Src\Tests\General\MSP;
+namespace Volantus\FlightBase\Tests\General\MSP;
 
 use Ratchet\Client\WebSocket;
 use Volantus\FlightBase\Src\Client\Server;
