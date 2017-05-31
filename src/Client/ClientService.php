@@ -135,6 +135,20 @@ class ClientService
     }
 
     /**
+     * @param OutgoingMessage $message
+     */
+    protected function sendToRelayServers(OutgoingMessage $message)
+    {
+        $message = json_encode($message->toRawMessage());
+
+        foreach ($this->servers as $server) {
+            if ($server->isRelayServer()) {
+                $server->send($message);
+            }
+        }
+    }
+
+    /**
      * @param LoopInterface $loop
      */
     public function setLoop(LoopInterface $loop)
