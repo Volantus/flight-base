@@ -28,11 +28,11 @@ class Motor implements \JsonSerializable
     /**
      * Motor constructor.
      *
-     * @param int $id
-     * @param int $power
-     * @param int $pin
+     * @param int   $id
+     * @param float $power
+     * @param int   $pin
      */
-    public function __construct(int $id, int $power, int $pin = null)
+    public function __construct(int $id, float $power, int $pin = null)
     {
         $this->id = $id;
         $this->power = $power;
