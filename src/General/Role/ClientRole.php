@@ -10,6 +10,7 @@ abstract class ClientRole
     const OPERATOR               = 1;
     const MANUAL_CONTROL_SERVICE = 2;
     const GYRO_STATUS_SERVICE    = 3;
+    const MOTOR_STATUS_SERVICE   = 4;
 
     /**
      * @return array
@@ -34,6 +35,9 @@ abstract class ClientRole
                 break;
             case self::GYRO_STATUS_SERVICE:
                 return 'GYRO_STATUS_SERVICE';
+                break;
+            case self::MOTOR_STATUS_SERVICE:
+                return 'MOTOR_STATUS_SERVICE';
                 break;
         }
 
