@@ -11,7 +11,7 @@ class ClientRoleTest extends \PHPUnit_Framework_TestCase
 {
     public function test_getSupportedRoles_correct()
     {
-        self::assertEquals([ClientRole::OPERATOR, ClientRole::MANUAL_CONTROL_SERVICE, ClientRole::GYRO_STATUS_SERVICE], ClientRole::getSupportedRoles());
+        self::assertEquals([ClientRole::OPERATOR, ClientRole::MANUAL_CONTROL_SERVICE, ClientRole::GYRO_STATUS_SERVICE, ClientRole::MOTOR_STATUS_SERVICE], ClientRole::getSupportedRoles());
     }
 
     public function test_getTitle_correct()

@@ -7,8 +7,8 @@ namespace Volantus\FlightBase\Src\General\Motor;
  */
 class Motor implements \JsonSerializable
 {
-    const ZERO_LEVEL = 1000;
-    const FULL_LEVEL = 2000;
+    const ZERO_LEVEL = 0;
+    const FULL_LEVEL = 1;
 
     /**
      * @var int
@@ -18,10 +18,10 @@ class Motor implements \JsonSerializable
     /**
      * @var int
      */
-    private $gpioPin;
+    private $pin;
 
     /**
-     * @var int
+     * @var float
      */
     private $power;
 
@@ -30,26 +30,13 @@ class Motor implements \JsonSerializable
      *
      * @param int $id
      * @param int $power
-     * @param int $gpioPin
+     * @param int $pin
      */
-    public function __construct(int $id, int $power, int $gpioPin = null)
+    public function __construct(int $id, int $power, int $pin = null)
     {
         $this->id = $id;
         $this->power = $power;
-
-        $this->gpioPin = $gpioPin ?: (int) getenv('MOTOR_' . $this->id . '_PIN');
-        if (!is_int($this->gpioPin) || $this->gpioPin == 0) {
-            throw new \InvalidArgumentException('GPIO Pin for motor ' . $this->id . ' needs to be configured');
-        }
-    }
-
-    /**
-     * @param int $delta
-     */
-    public function changePower(int $delta)
-    {
-        $this->power += $delta;
-        $this->keepPowerLimits();
+        $this->pin = $pin;
     }
 
     /**
@@ -77,29 +64,11 @@ class Motor implements \JsonSerializable
     }
 
     /**
-     * @param int $power
-     */
-    public function setPower(int $power)
-    {
-        $this->power = $power;
-        $this->keepPowerLimits();
-    }
-
-    private function keepPowerLimits()
-    {
-        if ($this->power < self::ZERO_LEVEL) {
-            $this->power = self::ZERO_LEVEL;
-        } elseif ($this->power > self::FULL_LEVEL) {
-            $this->power = self::FULL_LEVEL;
-        }
-    }
-
-    /**
      * @return int
      */
-    public function getGpioPin(): int
+    public function getPin(): int
     {
-        return $this->gpioPin;
+        return $this->pin;
     }
 
     /**
@@ -109,7 +78,7 @@ class Motor implements \JsonSerializable
     {
         return [
             'id'    => $this->id,
-            'pin'   => $this->gpioPin,
+            'pin'   => $this->pin,
             'power' => $this->power
         ];
     }
