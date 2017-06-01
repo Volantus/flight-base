@@ -17,7 +17,7 @@ abstract class ClientRole
      */
     public static function getSupportedRoles(): array
     {
-        return [self::OPERATOR, self::MANUAL_CONTROL_SERVICE, self::GYRO_STATUS_SERVICE];
+        return [self::OPERATOR, self::MANUAL_CONTROL_SERVICE, self::GYRO_STATUS_SERVICE, self::MOTOR_STATUS_SERVICE];
     }
 
     /**
