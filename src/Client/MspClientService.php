@@ -50,7 +50,7 @@ class MspClientService extends ClientService
      */
     public function removeServer(Server $server)
     {
-        parent::addServer($server);
+        parent::removeServer($server);
 
         if ($server->isMspServer()) {
             foreach ($this->mspRepositories as $repository) {
