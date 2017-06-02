@@ -2,7 +2,7 @@
 namespace Volantus\FlightBase\Src\Client;
 
 use Symfony\Component\Console\Output\OutputInterface;
-use Volantus\FlightBase\Src\General\MSP\MspRepository;
+use Volantus\FlightBase\Src\General\MSP\MspServerBased;
 use Volantus\FlightBase\Src\Server\Messaging\MessageService;
 
 /**
@@ -13,16 +13,16 @@ use Volantus\FlightBase\Src\Server\Messaging\MessageService;
 class MspClientService extends ClientService
 {
     /**
-     * @var MspRepository[]
+     * @var MspServerBased[]
      */
     protected $mspRepositories = [];
 
     /**
      * MspClientService constructor.
      *
-     * @param OutputInterface $output
-     * @param MessageService  $messageService
-     * @param array           $mspRepositories
+     * @param OutputInterface  $output
+     * @param MessageService   $messageService
+     * @param MspServerBased[] $mspRepositories List of MSP based services for easier connection management
      */
     public function __construct(OutputInterface $output, MessageService $messageService, array $mspRepositories = [])
     {

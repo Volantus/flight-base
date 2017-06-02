@@ -11,15 +11,8 @@ use Volantus\MSPProtocol\Src\Protocol\Response\Response;
  *
  * @package Volantus\FlightBase\Src\General\MSP
  */
-abstract class MspRepository
+abstract class MspRepository extends MspServerBased
 {
-    /**
-     * Connections ready for MSP requests
-     *
-     * @var Server[]
-     */
-    protected $freeConnections = [];
-
     /**
      * @var array
      */
@@ -29,18 +22,6 @@ abstract class MspRepository
      * @var int
      */
     protected $priority = 3;
-
-    /**
-     * GyroStatusRepository constructor.
-     *
-     * @param Server[] $connections
-     */
-    public function __construct(array $connections = [])
-    {
-        foreach ($connections as $connection) {
-            $this->addServer($connection);
-        }
-    }
 
     public function sendRequests()
     {
@@ -83,20 +64,4 @@ abstract class MspRepository
      * @return mixed
      */
     protected abstract function decodeResponse(Response $response);
-
-    /**
-     * @param Server $server
-     */
-    public function addServer(Server $server)
-    {
-        $this->freeConnections[spl_object_hash($server)] = $server;
-    }
-
-    /**
-     * @param Server $server
-     */
-    public function removeServer(Server $server)
-    {
-        unset($this->freeConnections[spl_object_hash($server)]);
-    }
 }
