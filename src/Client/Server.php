@@ -3,6 +3,7 @@
 namespace Volantus\FlightBase\Src\Client;
 
 use Ratchet\Client\WebSocket;
+use Volantus\FlightBase\Src\General\Generic\GenericInternalMessage;
 use Volantus\FlightBase\Src\Server\Messaging\Sender;
 
 /**
@@ -79,6 +80,15 @@ class Server implements Sender
         $this->connection->send($data);
     }
 
+    /**
+     * @param mixed $payload
+     */
+    public function sendGenericMessage($payload)
+    {
+        $message = new GenericInternalMessage($payload);
+        $message = json_encode($message->toRawMessage());
+        $this->send($message);
+    }
 
     public function setAuthenticated()
     {
